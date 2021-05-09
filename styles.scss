@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
-body {
-    margin: 3em 5em;
-    font-family: 'Noto Sans', Arial;
-    font-size: 18px;
-
-}
-
-code {
-    background-color: #ededed;
-    color: #1291e5;
-    padding: 0 0.5em;
-}
-
-button {
+@mixin button {
     font-size: 1em;
     padding: 0.5em 1em;
     border-radius: 5px;
@@ -23,10 +10,21 @@ button {
     cursor: pointer;
 }
 
-input {
-    border-radius: 5px;
-    font-size: 1.5em;
-    padding-right: 0.2em;
+body {
+    margin: 3em 5em;
+    font-family: 'Noto Sans', Arial;
+    font-size: 18px;
+    background-color: #c3e2dc;
+}
+
+code {
+    background-color: #ededed;
+    color: #1291e5;
+    padding: 0 0.2em;
+}
+
+button, .button {
+    @include button;
 }
 
 .rand {
@@ -38,7 +36,27 @@ input {
     }
 }
 
+a > i {
+    color: initial;
+}
+
 .exercise {
     background-color: #ffffe2;
-    
+    padding: 0 2em 1em 2em;
+    border: 1px solid purple;
+    border-radius: 5px;
+    margin: 1em;
+    .instructions {
+        color: red;
+    }
+    input {
+        font-size: 1.2em;
+        margin: 0.2em;
+        padding: 0.1em 0.3em 0.1em 0.3em;
+        border-radius: 5px;
+    }
+    button, .button {
+        @include button;
+    }
 }
+

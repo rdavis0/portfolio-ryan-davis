@@ -3,15 +3,16 @@ body {
   margin: 3em 5em;
   font-family: "Noto Sans", Arial;
   font-size: 18px;
+  background-color: #c3e2dc;
 }
 
 code {
   background-color: #ededed;
   color: #1291e5;
-  padding: 0 0.5em;
+  padding: 0 0.2em;
 }
 
-button {
+button, .button {
   font-size: 1em;
   padding: 0.5em 1em;
   border-radius: 5px;
@@ -19,12 +20,6 @@ button {
   background-color: #58b1dd;
   color: white;
   cursor: pointer;
-}
-
-input {
-  border-radius: 5px;
-  font-size: 1.5em;
-  padding-right: 0.2em;
 }
 
 .rand {
@@ -36,12 +31,34 @@ input {
   margin-right: 0.5em;
 }
 
+a > i {
+  color: initial;
+}
+
 .exercise {
   background-color: #ffffe2;
-  padding: 0 2em;
+  padding: 0 2em 1em 2em;
   border: 1px solid purple;
   border-radius: 5px;
-  margin-top: 1em;
+  margin: 1em;
+}
+.exercise .instructions {
+  color: red;
+}
+.exercise input {
+  font-size: 1.2em;
+  margin: 0.2em;
+  padding: 0.1em 0.3em 0.1em 0.3em;
+  border-radius: 5px;
+}
+.exercise button, .exercise .button {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: none;
+  background-color: #58b1dd;
+  color: white;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
