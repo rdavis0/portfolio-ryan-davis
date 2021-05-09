@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ryan Davis WDD 330 Portfolio</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        let calculator = {
+            read() {
+                this.a = +prompt("a = ");
+                this.b = +prompt("b = ");
+            },
+
+            sum() {
+                return this.a + " + " + this.b + " = " + (this.a + this.b);
+            },
+
+            mul() {
+                return this.a + " * " + this.b + " = " + (this.a * this.b);
+            }
+        }
+
+        function calc() {
+            calculator.read();
+            alert(calculator.sum());
+            alert(calculator.mul());
+        }
+
+        function genRand() {
+            var min = document.getElementById("randMin").value;
+            var max = document.getElementById("randMax").value;
+            var diff = max - min + 1;
+            var rand = +min + Math.floor(diff * Math.random());
+            document.getElementById("randResult").innerText = "Result: " + rand;
+        }
+    </script>
+</head>
+
+<body>
+    <a href="/index.html">Home</a>
+    <h1>Week 3</h1>
+    <h2>Object Methods: this</h2>
+    <ul>
+        <li>
+            <code>this</code> behaves differently from other programming languages; it's unbound, can be used in functions that are not methods of an object
+        </li>
+    </ul>
+    <button onClick=calc()>Calculator</button>
+    <h2>Objects</h2>
+    <ul>
+        <li>All objects are mutable while program is running</li>
+        <li>Use <code>'property' in object</code> to check if object has a property. <code>hasOwnProperty</code> checks for non-inherited properties</li>
+        <li>Objects are passed by reference. Copies point to the same object in memory. The opposite is true of primitives.</li>
+        <li>An object can be passed as a parameter to a function, allowing you to pass the parameters in any order <br>
+        <code>function greet({greeting,name,age}) { <br>
+            return `${greeting}! My name is ${name} and I am ${age} years old.`;
+        }</code></li>
+        <section class="exercise">
+            <h3>Random integer generator</h3>
+            <label for="randMin" class="rand">Min: </label>
+            <input id="randMin" class="rand">
+            <label for="randMax" class="rand">Max: </label>
+            <input id="randMax" class="rand">
+            <button onClick="genRand()">Generate</button>
+            <p id="randResult"></p>
+        </section>
+    </ul>
+</body>

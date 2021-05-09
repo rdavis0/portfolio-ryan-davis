@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+body {
+  margin: 3em 5em;
+  font-family: "Noto Sans", Arial;
+  font-size: 18px;
+}
+
+code {
+  background-color: #ededed;
+  color: #1291e5;
+  padding: 0 0.5em;
+}
+
+button {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: none;
+  background-color: #58b1dd;
+  color: white;
+  cursor: pointer;
+}
+
+input {
+  border-radius: 5px;
+  font-size: 1.5em;
+  padding-right: 0.2em;
+}
+
+.rand {
+  font-size: 1.5em;
+}
+.rand ~ input {
+  width: 3em;
+  text-align: right;
+  margin-right: 0.5em;
+}
+
+.exercise {
+  background-color: #ffffe2;
+  padding: 0 2em;
+  border: 1px solid purple;
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */
