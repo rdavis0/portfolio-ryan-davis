@@ -1,0 +1,31 @@
+body {
+    font-size: 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 300px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    text-align: center;
+}
+
+.container :nth-child(3n-2),
+:nth-child(3n-1) {
+    border-right: 1px solid black;
+}
+
+.container :nth-child(-n+3) {
+    border-bottom: 1px solid black;
+}
+
+.container :nth-child(-n+6) {
+    border-bottom: 1px solid black;
+}
+
