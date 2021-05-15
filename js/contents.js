@@ -1,11 +1,14 @@
-const links = [
-    {
+const links = [{
         label: "Week 1",
-        url: "week1/index.html"
+        url: "notes/week1.html"
     },
     {
         label: "Week 3",
-        url: "week3/index.html"
+        url: "notes/week3.html"
+    },
+    {
+        label: "Week 4",
+        url: "notes/week4.html"
     }
 ]
 
