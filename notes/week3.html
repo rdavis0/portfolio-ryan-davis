@@ -124,5 +124,25 @@
             </form>
         </aside>
     </section>
+    <section>
+        <h2>Events</h2>
+        <ul>
+            <li>Event listeners are a non-blocking approach to handling events</li>
+            <li><code>click</code> even counts mouse clicks, enter key, and touchscreen taps</li>
+            <li>Event listeners are the current standard. <code>document.body.addEventListener('click', myFunction);</code></li>
+            <li>Touch events are used for smartphones and tablets</li>
+            <li>There are no swipe events; must be built with a combination of <code>touchstart</code>, <code>touchmove</code>, and <code>touchleave</code>, or use a library</li>
+            <li>Event propagation</li>
+            <ul>
+                <li>Bubbling (default) is when an event fires on the element clicked first, then bubbles up the document (e.g. li to ul to body to html)</li>
+                <li>Capturing is when the the event fires on the root element first, then propagates downwards through children to the target element (e.g. ul to li)</li>
+                
+            </ul>
+        </ul>
+        <aside class="exercise">
+           <p><a href="events.html">Events practice</a></p>
+        </aside>
+    </section>
+
     <script src="../js/common.js"></script>
 </body>
