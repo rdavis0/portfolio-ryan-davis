@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Ryan Davis WDD 330 Portfolio</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 </head>
 
 <body>
@@ -59,9 +61,37 @@
         </ul>
     </section>
     <section>
+        <h2>Object Oriented Programming in Javascript</h2>
+        <ul>
+            <li>Javascript started as a prototype-based language, meaning an actual object is used as the blueprint for creating more objects (as opposed to class-based)</li>
+            <li>JavaScript added class support in ES6</li>
+            <li>Two ways to create a new object:</li>
+<pre><code class="javascript">const dice = {
+    sides: 6,
+    roll() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }    
+}
+</code></pre>
+<pre><code>const Dice = function(sides=6){
+    this.sides = sides;
+    this.roll = function() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+}
+</code></pre>     
+            <li>Instantiate the object with <code>const d20 = new Dice(20);</code></li>      
+            <li>What is the purpose of built-in Object constructor? <code>obj = new Object();</code></li>
+            <li>Recommended to use literals to construct arrays <code>const arr = [1, 2, 3]</code> because of strange behavior when using object constructor <code>Array()</code></li>
+            <li><code>static</code> keyword used in class declaration for methods called by the class directly rather than instances of the class</li>     
+        </ul>
+    </section>
+    <section>
         <h2>Team Activity</h2>
         <a target="_blank" href="tictactoe/tic-tac-toe.html">Tic Tac Toe</a>
     </section>
     <!-- Javascript -->
     <script src="../js/common.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
