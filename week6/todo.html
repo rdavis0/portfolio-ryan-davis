@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <script src="../js/common.js"></script>
+    <script type='module' src='main.js'></script>
+    <title>Todo</title>
+</head>
+<body>
+    <main>
+        <h1>Todos</h1>
+        <div class='todo-section'>
+            <div class='todo-toolbar'>
+                <span id='task-counter'>3 tasks left</span>
+                <ul class='filter'>
+                    <li>All</li>
+                    <li>Active</li>
+                    <li>Complete</li>
+                </ul>
+            </div>
+            <ol class='todo-list'>
+                <li class='todo-item'>
+                    <input type="checkbox" name="todo1" id="todo1">
+                    <label for="todo1">Todo 1</label>
+                    <i class="fas fa-trash"></i>
+                </li>
+                <li class='todo-item'>
+                    <input type="checkbox" name="todo2" id="todo2">
+                    <label for="todo2">Todo 2</label>
+                    <i class="fas fa-trash"></i>
+                </li>
+                <li class='todo-item'>
+                    <input type="checkbox" name="todo3" id="todo3">
+                    <label for="todo3">Todo 3</label>
+                    <i class="fas fa-trash"></i>
+                </li>
+            </ol>
+        </div>
+        <div>
+            <form action="" class='add-todo'>
+                <input type="text" name="" id="">
+                <i class="fas fa-plus-square add-button"></i>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

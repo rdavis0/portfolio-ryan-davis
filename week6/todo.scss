@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
+
+
+$default-font: 'News Cycle';
+$default-font-size: 20px;
+
+html {
+    font: $default-font-size $default-font, sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+main {
+    max-width: 25rem;
+    margin: auto;
+    padding: 1rem 2rem;
+    background-color: white;
+}
+
+h1 {
+    margin: 0 0 1rem 0;
+}
+
+.todo-section {
+    border: 1px solid black;
+    // padding: 0.5em;
+}
+
+.todo-toolbar {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin: 0.5em;
+}
+
+.todo-list {
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    list-style-type: none;
+        // input {
+        //     appearance: none;
+        //     border: 2px solid black;
+        //     height: 1em;
+        //     width: 1em;
+        // }
+    display: grid;
+    grid-template-columns: 1.5em [checkbox] auto [todo] 1.5em [del];
+    align-items: center;
+    border-top: 1px solid black;
+    padding: 0.5em;
+}
+
+.filter {
+    display: inline;
+    margin: 0;
+    justify-self: end;
+    li {
+        list-style-type: none;
+        display: inline;
+        margin-left: 1em;
+     }
+}
+
+.fas {
+    cursor: pointer;
+    caret-color: transparent;
+}
+
+.add-todo {
+    margin-top: 2em;
+    display: flex;
+    input {
+        font: $default-font-size $default-font;
+        flex-grow: 1;
+        margin-right: 0.5em;
+    }
+    .add-button {
+        font-size: 2em;
+        flex-basis: auto;
+        align-self: flex-end;
+    }
+}
+
