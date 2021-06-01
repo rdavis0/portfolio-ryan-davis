@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap");
 html {
-  font: 20px "News Cycle", sans-serif;
+  font: 14px "News Cycle", sans-serif;
 }
 
 body {
@@ -24,7 +24,7 @@ h1 {
 
 .todo-toolbar {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: fit-content(5em) auto;
   margin: 0.5em 0 0.5em 0.5em;
   caret-color: transparent;
 }
@@ -94,7 +94,7 @@ h1 {
   display: flex;
 }
 .add-todo input {
-  font: 20px "News Cycle";
+  font: 14px "News Cycle";
   flex-grow: 1;
   margin-right: 0.5em;
   padding: 0.2em 0.4em;
@@ -106,6 +106,11 @@ h1 {
   cursor: pointer;
 }
 
+@media all and (min-width: 420px) {
+  html {
+    font-size: 20px;
+  }
+}
 @media all and (min-width: 500px) {
   main {
     padding: 1rem 2rem;
