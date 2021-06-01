@@ -30,6 +30,12 @@ onTouch('#filter-complete', () => {
     filterTodos(todoList, '#filter-complete');
 });
 
+qs('#todoInput').addEventListener('keyup', (event) => {
+    if(event.key === 'Enter') {
+        addTodo('#todoInput', key);
+    }
+})
+
 /**
  * build a todo object, add it to the todoList, and save the new list to local storage.
  * @param {string} task The text of the task to be saved. 
@@ -67,9 +73,11 @@ function getTodos(key) {
  */
 function addTodo(selector, key) {
     var task = qs(selector).value;
-    saveTodo(task, key);
-    listTodos(todoList, parentElement);
-    qs(selector).value = null;
+    if(task != '') {
+        saveTodo(task, key);
+        listTodos(todoList, parentElement);
+        qs(selector).value = null;
+    }
 }
 
 /**
@@ -92,6 +100,7 @@ function renderTodoList(list, element) {
         checkbox.setAttribute('type', 'checkbox');
         checkbox.setAttribute('name', 'todo' + i);
         checkbox.setAttribute('id', 'todo' + i);
+        checkbox.classList.add('checkbox');
         checkbox.addEventListener('change', () => {
             completeOrUncompleteTodo(todo, checkbox);
         })
@@ -101,7 +110,7 @@ function renderTodoList(list, element) {
         label.innerText = todo.content;
 
         var del = document.createElement('i');
-        del.setAttribute('class', 'fas fa-trash');
+        del.setAttribute('class', 'fas fa-trash delete');
         del.addEventListener('click', () => {
             removeTodo(todo);
         })
@@ -183,5 +192,3 @@ function filterTodos(list, element) {
 }
 
 //TODO: Figure out how to update filtered list properly when marking a task as complete
-//TODO: Add todo when user hits Enter
-//TODO: More styling

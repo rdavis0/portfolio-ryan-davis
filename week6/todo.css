@@ -37,10 +37,29 @@ h1 {
 .todo-item {
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1.5em [checkbox] auto [todo] 1.5em [del];
+  grid-template-columns: fit-content(1em) auto 1.5em;
   align-items: center;
   border-top: 1px solid black;
   padding: 0.5em;
+}
+.todo-item .checkbox {
+  appearance: none;
+  border: 2px solid black;
+  padding: 0.8em;
+  margin: 0;
+  cursor: pointer;
+  background-color: white;
+}
+.todo-item label {
+  padding-left: 0.5em;
+  cursor: pointer;
+  margin-right: 1em;
+}
+.todo-item .checkbox:hover {
+  background-color: #d6e2e8;
+}
+.todo-item .checkbox:checked {
+  background-color: #a5c0cc;
 }
 
 .completed {
@@ -63,9 +82,11 @@ h1 {
   background-color: #a5c0cc;
 }
 
-.fas {
+.delete {
   cursor: pointer;
   caret-color: transparent;
+  justify-self: center;
+  padding: 0.5em;
 }
 
 .add-todo {
@@ -76,11 +97,13 @@ h1 {
   font: 20px "News Cycle";
   flex-grow: 1;
   margin-right: 0.5em;
+  padding: 0.2em 0.4em;
 }
 .add-todo .add-button {
-  font-size: 2em;
+  font-size: 2.5em;
   flex-basis: auto;
   align-self: flex-end;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=todo.css.map */
