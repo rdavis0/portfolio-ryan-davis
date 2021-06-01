@@ -33,6 +33,7 @@ h1 {
   display: inline;
   margin: 0;
   justify-self: end;
+  padding: 0;
 }
 .filter li {
   list-style-type: none;
