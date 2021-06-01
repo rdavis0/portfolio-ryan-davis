@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="todo.css">
     <script src="../js/common.js"></script>
     <script src="main.js" type="module"></script>
-    <!-- <script type='module'>
-        import {readFromLS} from './ls.js';    
-    </script> -->
     <title>Todo</title>
 </head>
 <body>
@@ -17,35 +14,19 @@
         <h1>Todos</h1>
         <div class='todo-section'>
             <div class='todo-toolbar'>
-                <span id='task-counter'>3 tasks left</span>
+                <span id='task-counter'></span>
                 <ul class='filter'>
-                    <li>All</li>
-                    <li>Active</li>
-                    <li>Complete</li>
+                    <li id='filter-all' class='selected-filter'>All</li>
+                    <li id='filter-active'>Active</li>
+                    <li id='filter-complete'>Complete</li>
                 </ul>
             </div>
-            <ol class='todo-list' id='todo-list'>
-                <li class='todo-item'>
-                    <input type="checkbox" name="todo1" id="todo1">
-                    <label for="todo1">Todo 1</label>
-                    <i class="fas fa-trash"></i>
-                </li>
-                <li class='todo-item'>
-                    <input type="checkbox" name="todo2" id="todo2">
-                    <label for="todo2">Todo 2</label>
-                    <i class="fas fa-trash"></i>
-                </li>
-                <li class='todo-item'>
-                    <input type="checkbox" name="todo3" id="todo3">
-                    <label for="todo3">Todo 3</label>
-                    <i class="fas fa-trash"></i>
-                </li>
-            </ol>
+            <ol class='todo-list' id='todo-list'></ol>
         </div>
         <div>
             <form action="" class='add-todo'>
-                <input type="text" name="" id="">
-                <i class="fas fa-plus-square add-button"></i>
+                <input type="text" name="todoInput" id="todoInput">
+                <i id='addButton' class="fas fa-plus-square add-button"></i>
             </form>
         </div>
     </main>

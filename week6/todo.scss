@@ -1,22 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
 
+@mixin noCaret {
+    caret-color: transparent;
+}
 
 $default-font: 'News Cycle';
 $default-font-size: 20px;
+
 
 html {
     font: $default-font-size $default-font, sans-serif;
 }
 
 body {
-    background-color: black;
+    background-color: rgb(59, 94, 63);
 }
 
 main {
     max-width: 25rem;
     margin: auto;
     padding: 1rem 2rem;
-    background-color: white;
+    background-color: rgb(255, 247, 225);
 }
 
 h1 {
@@ -32,6 +36,7 @@ h1 {
     display: grid;
     grid-template-columns: 40% 60%;
     margin: 0.5em;
+    @include noCaret;
 }
 
 .todo-list {
@@ -54,6 +59,10 @@ h1 {
     padding: 0.5em;
 }
 
+.completed {
+    text-decoration: line-through;
+}
+
 .filter {
     display: inline;
     margin: 0;
@@ -61,13 +70,19 @@ h1 {
     li {
         list-style-type: none;
         display: inline;
-        margin-left: 1em;
+        // margin-left: 1em;
+        padding: 0.5em;
+        cursor: pointer;
      }
+}
+
+.selected-filter {
+    background-color: rgb(165, 192, 204);
 }
 
 .fas {
     cursor: pointer;
-    caret-color: transparent;
+    @include noCaret;
 }
 
 .add-todo {

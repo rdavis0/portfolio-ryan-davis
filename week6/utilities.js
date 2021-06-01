@@ -3,7 +3,7 @@
  * @param  {string} selector The selector passed to querySelector
   * @return {element}     The matching element or null if not found
  */
- function qs(selector) { 
+ export function qs(selector) { 
      return document.querySelector(selector);
  }
  /**
@@ -12,6 +12,6 @@
  * @param {function} callback The callback function to run
    
   */
- function onTouch(elementSelector, callback) { 
-     qs(elementSelector).addEventListener('touchend', callback)
+ export function onTouch(elementSelector, callback) { 
+     qs(elementSelector).addEventListener('click', callback)
  }

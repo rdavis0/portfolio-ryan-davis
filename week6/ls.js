@@ -4,7 +4,7 @@
   * @return {array}     The value as an array of objects
  */
  export function readFromLS(key) { 
-     return localStorage.getItem(key);
+     return JSON.parse(localStorage.getItem(key));
  }
  /**
   * write an array of objects to local storage under the provided key
@@ -13,5 +13,5 @@
   
   */
  export function writeToLS(key, data) { 
-     localStorage.setItem(key, data);
+     localStorage.setItem(key, JSON.stringify(data));
  }

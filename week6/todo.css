@@ -4,14 +4,14 @@ html {
 }
 
 body {
-  background-color: black;
+  background-color: #3b5e3f;
 }
 
 main {
   max-width: 25rem;
   margin: auto;
   padding: 1rem 2rem;
-  background-color: white;
+  background-color: #fff7e1;
 }
 
 h1 {
@@ -26,6 +26,7 @@ h1 {
   display: grid;
   grid-template-columns: 40% 60%;
   margin: 0.5em;
+  caret-color: transparent;
 }
 
 .todo-list {
@@ -42,6 +43,10 @@ h1 {
   padding: 0.5em;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .filter {
   display: inline;
   margin: 0;
@@ -50,7 +55,12 @@ h1 {
 .filter li {
   list-style-type: none;
   display: inline;
-  margin-left: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.selected-filter {
+  background-color: #a5c0cc;
 }
 
 .fas {
