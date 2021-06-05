@@ -1,0 +1,36 @@
+li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header"
+    "main main";
+}
+
+h1 {
+    text-align: center;
+    background-color: lightgray;
+    padding: 25px;
+}
+
+h2 {
+    grid-area: header;
+    text-align: center;
+    background-color: lightgray;
+    padding: 15px;
+}
+
+ul {
+    padding: 0;
+}
+
+div {
+    align-self: center;
+    justify-self: left;
+}
+
+.image {
+    justify-self: center;
+    width: 80%;
+    height: auto;
+}
