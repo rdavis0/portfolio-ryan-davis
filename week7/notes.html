@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ryan Davis WDD 330 Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <h1>Week 7</h1>
+    <section>
+        <h2>Ch. 11: Further Functions</h2>
+        <ul>
+            <li>JS functions are first-class objects - they can be passed around like any other value</li>
+            <li>Use call() method to set value of this with an existing object</li>
+<pre><code>function sayHello(){
+    return `Hello, my name is ${ this.name }`;
+}
+
+const clark = { name: 'Clark' };
+const bruce = { name: 'Bruce' };
+sayHello.call(clark);
+<< 'Hello, my name is Clarke'
+sayHello.call(bruce);
+<< 'Hello, my name is Bruce'
+</code></pre>
+            <li>Immediately Invoked Function Expression (IIFE) - an anonymous function invoked as soon as it's defined</li>
+<pre><code>(function(){
+const temp = 'World';
+console.log(`Hello ${temp}`);
+})();
+<< 'Hello World'</code></pre>
+            <li>IIFEs can be useful for operations requiring a temporary varibale; ensures it is not used again outside of its scope</li>
+        </ul>
+        <h3>Promises</h3>
+        <aside class="exercise">
+            <button>Roll</button>
+            <script>
+                const dice = {
+                sides: 6,
+                    roll() {
+                        return Math.floor(this.sides * Math.random()) + 1;
+                    }
+                }
+                console.log('Before the roll');
+                const roll = new Promise( (resolve,reject) => {
+                    const n = dice.roll();
+                    if(n > 1){
+                        setTimeout(()=>{resolve(n)},n*200);
+                    } else {
+                        setTimeout(()=>reject(n),n*200);
+                    }
+                });
+                roll.then(result => console.log(`I rolled a ${result}`) )
+                .catch(result => console.log(`Drat! ... I rolled a ${result}`) );
+                console.log('After the roll');
+            </script>
+        </aside>
+    </section>
+    <section>
+        <h2>Ch. 13: AJAX</h2>
+       
+    </section>
+    <section>
+        <h2>Team Activity</h2>
+        <a href="./hiking-complete.html">Hiking Comments</a>
+    </section>
+    <!-- Javascript -->
+    <script src="../js/common.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
