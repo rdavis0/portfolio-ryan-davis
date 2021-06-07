@@ -38,32 +38,63 @@ console.log(`Hello ${temp}`);
         </ul>
         <h3>Promises</h3>
         <aside class="exercise">
-            <button>Roll</button>
-            <script>
-                const dice = {
-                sides: 6,
-                    roll() {
-                        return Math.floor(this.sides * Math.random()) + 1;
-                    }
-                }
-                console.log('Before the roll');
-                const roll = new Promise( (resolve,reject) => {
-                    const n = dice.roll();
-                    if(n > 1){
-                        setTimeout(()=>{resolve(n)},n*200);
-                    } else {
-                        setTimeout(()=>reject(n),n*200);
-                    }
-                });
-                roll.then(result => console.log(`I rolled a ${result}`) )
-                .catch(result => console.log(`Drat! ... I rolled a ${result}`) );
-                console.log('After the roll');
-            </script>
+            <p><a target="_blank" href="./promises_geo.html">Promises practice with geolocation</a></p>
         </aside>
+        <h3>Closures</h3>
+        <ul>
+            <li>
+                A reference to a variable that was created inside the scope of another funciton, but then kept alive
+            </li>
+            <li>Inner functions have access to variables created in a surrounding outer function</li>
+<pre><code>function outer() {
+    const outside = 'Outside!';
+    function inner() {
+        const inside = 'Inside!';
+        console.log(outside);
+        console.log(inside);
+    }
+    console.log(outside);
+    inner();
+}</code></pre>
+            <li>A closure is formed when the inner function is returned by the outer function: <code>function outer () { ...some code... return inner; }</code></li> The closure now has access to both the inner and outer variables.
+        </ul>
+        <h3>Pure Functions</h3>
+        <ol>
+            <li>Return value only depends on values provided as arguments</li>
+            <li>There are no side-effects. Only non-destructive data transformations and return new values</li>
+            <li>Referential transparency. Same arguments always give same results.</li>
+        </ol>
     </section>
     <section>
-        <h2>Ch. 13: AJAX</h2>
-       
+        <h2>Ch. 13: Ajax</h2>
+        <ul>
+            <li>Ajax: A technique that allows web pages to communicate asynchronously with a server, dynamically updates web pages without reloading.</li>
+        </ul>
+        <h3>Fetch API</h3>
+        <ul>
+            <li>Fetch API is the living standard for requesting and sending data async across network</li>
+            <li><code>fetch()</code> returns a promise that resolves to the response returned from the URL</li>
+            <li>Errors like 404 count as success in terms of the promise, so check for <code>response.ok</code> in if statement</li>
+            <li>Example of a JSON response promise:</li>
+<pre><code>fetch(url)
+.then( response => response.json() ); // transforms the JSON data into a JavaScript object
+.then( data => console.log(Object.entries(data)) )
+.catch( error => console.log('There was an error: ', error))</code></pre>
+        </ul>    
+        <h3>Headers</h3>
+        <ul>
+            <li>HTTP headers are used to pass additional information about a request or response</li>
+            <li>Fetch API introduced <code>Headers</code> interface: <code>const headers = new Headers();</code></li>
+            <li><code>Headers.has()</code> check if the headers obj contains the header passed as a param</li>
+            <li><code>Headers.get()</code> returns value of the header passed as argument</li>
+            <li><code>Headers.set()</code> create or set value of header</li>
+            <li><code>Headers.append()</code></li>
+            <li><code>Headers.delete()</code></li>
+            <li>Iterate over headers with <code>keys()</code>, <code>values()</code>, and <code>entries()</code>.</li>
+        </ul>
+        <aside class="exercise">
+            <p><a target="_blank" href="./ajax.html">Ajax fetch practice</a></p>
+        </aside>
     </section>
     <section>
         <h2>Team Activity</h2>
