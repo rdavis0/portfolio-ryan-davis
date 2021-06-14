@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Ryan Davis WDD 330 Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        li {
+            margin-bottom: 0.5em;
+            cursor: pointer;
+        }
+
+        .shipInfo {
+
+        }
+
+        .shipInfoTitle {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Star Wars Ships</h1>
+        <div>
+            <ul id='shipsList'></ul>
+            <button id='btnPrev'>Previous</button>
+            <button id='btnNext'>Next</button>
+        </div>
+    </main>
+    <script>
+        let next = '';
+        let prev = '';
+        let ships = '';
+        const list = document.getElementById('shipsList');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        getStarships('https://swapi.dev/api/starships/');
+        
+        btnNext.addEventListener('click', () => getStarships(next), false);
+        btnPrev.addEventListener('click', () => getStarships(prev), false);
+        function getStarships(url) {
+            list.innerHTML = '';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    ships = Object.entries(data.results);
+                    next = data.next;
+                    prev = data.previous;
+                    ships.forEach(ship => {
+                        let li = document.createElement('li');
+                        li.innerText = ship[1].name;
+                        let shipInfo = formatDetails(ship[1]);
+                        shipInfo.style.display = 'none';
+                        shipInfo.id = ship[0]; // set id to position in list
+                        li.appendChild(shipInfo);
+                        li.addEventListener('click', () => { toggleVisible(shipInfo.id) })
+                        list.appendChild(li);
+                    })
+                });
+        }
+
+        function formatDetails(ship) {
+            let shipInfo = document.createElement('ul');
+            shipInfo.className = 'shipInfo';
+
+            shipInfo.appendChild(createShipDetailElement('Model', ship.model));
+            shipInfo.appendChild(createShipDetailElement('Starship Class', ship.starship_class));
+            shipInfo.appendChild(createShipDetailElement('Manufacturer', ship.manufacturer));
+            shipInfo.appendChild(createShipDetailElement('Length', ship.length));
+            shipInfo.appendChild(createShipDetailElement('Hyperdrive Rating', ship.hyperdrive_rating));
+            shipInfo.appendChild(createShipDetailElement('MGLT', ship.MGLT));
+            shipInfo.appendChild(createShipDetailElement('Max Atmosphering Speed', ship.max_atmosphering_speed));
+            shipInfo.appendChild(createShipDetailElement('Cost', ship.cost_in_credits));
+            shipInfo.appendChild(createShipDetailElement('Cargo Capacity', ship.cargo_capacity));
+            shipInfo.appendChild(createShipDetailElement('Crew', ship.crew));
+            shipInfo.appendChild(createShipDetailElement('Consumables', ship.consumables));
+            shipInfo.appendChild(createShipDetailElement('Passengers', ship.passengers));
+            
+            return shipInfo;
+        }
+
+        function createShipDetailElement(title, value) {
+            let li = document.createElement('li');
+            let titleSpan = document.createElement('span');
+            titleSpan.className = 'shipInfoTitle';
+            titleSpan.innerText = title + ': ';
+            let valueSpan = document.createElement('span');
+            valueSpan.className = 'shipInfoValue';
+            valueSpan.innerText = value;
+            li.appendChild(titleSpan);
+            li.appendChild(valueSpan);
+            return li;
+        }
+
+        function toggleVisible(id) {
+            let e = document.getElementById(id);
+            if(e.style.display == 'block') {
+                e.style.display = 'none';
+            }
+            else
+                e.style.display = 'block';
+        }
+    </script>
+</body>

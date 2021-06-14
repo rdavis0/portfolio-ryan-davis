@@ -10,10 +10,13 @@
     cursor: pointer;
 }
 
-body {
-    margin: 3em 5em;
+html {
     font-family: 'Noto Sans', Arial;
     font-size: 18px;
+}
+
+body {
+    margin: 3em 5em;
     background-color: #c3e2dc;
 }
 
@@ -57,6 +60,12 @@ a > i {
     }
     button, .button {
         @include button;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        margin: 1em 2em;
     }
 }
 
