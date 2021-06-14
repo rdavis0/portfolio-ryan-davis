@@ -47,9 +47,9 @@
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    ships = Object.entries(data.results);
-                    next = data.next;
-                    prev = data.previous;
+                    let ships = Object.entries(data.results);
+                    next = data.next == null ? '' : data.next.replace('http', 'https');
+                    prev = data.previous == null ? '' : data.previous.replace('http', 'https');
                     ships.forEach(ship => {
                         let li = document.createElement('li');
                         li.innerText = ship[1].name;
