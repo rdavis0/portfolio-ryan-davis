@@ -181,4 +181,8 @@ function renderOneHikeFull(hike) {
     `;
 
   return item;
+
+
+
+  document.querySelector()
 }
