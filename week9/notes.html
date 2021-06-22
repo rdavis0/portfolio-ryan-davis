@@ -13,6 +13,32 @@
     <a href="../index.html">Home</a>
     <h1>Week 9</h1>
     <section>
+        <h2>The Window Object</h2>
+        <ul>
+            <li>The <code>window</code> object is the global object; contains global variables and methods as its properties</li>
+            <li><code>this</code> in the global scope refers to the global object</li>
+            <li><code>alert()</code>, <code>confirm()</code>, and <code>prompt()</code> are methods of the window object</li>
+            <li>The <code>Navigator</code> object contains information about the browser. Access with <code>window.navigator</code></li>
+            <li><code>window.location</code> contains information about the URL of the current page</li>
+            <li>Use <code>window.history</code> to access info about history in the current session</li>
+            <li>Create a cookie with <code>document.cookie = 'foo=bar';</code></li>
+            <li>Cookies are read with <code>document.cookie</code>, but come back as a single string:</li>
+<pre><code>document.cookie:
+<< "name=Batman; hero=true; city=Gotham"
+</code></pre>
+            <li>Cookies expire at the end of the browser session but can be made to last longer with <code>expires=date</code> or <code>max-age= //value in seconds</code></li>
+            <li>Libraries like Cookies.js or jsCookie make cookie management easier</li>
+        </ul>
+    </section>
+    <section>
+        <h2>HTML5 APIs</h2>
+        <ul>
+            <li>
+                <code>data-</code> attribute embeds data with an element that is ignored by the browser
+            </li>
+        </ul>
+    </section>
+    <section>
         <h2>Team Activity</h2>
     </section>
     <a href="./drumkit.html">Drumkit</a>
