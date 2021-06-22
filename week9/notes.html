@@ -21,6 +21,9 @@
             <li>The <code>Navigator</code> object contains information about the browser. Access with <code>window.navigator</code></li>
             <li><code>window.location</code> contains information about the URL of the current page</li>
             <li>Use <code>window.history</code> to access info about history in the current session</li>
+        </ul>
+        <h3>Cookies</h3>
+        <ul>
             <li>Create a cookie with <code>document.cookie = 'foo=bar';</code></li>
             <li>Cookies are read with <code>document.cookie</code>, but come back as a single string:</li>
 <pre><code>document.cookie:
@@ -32,11 +35,40 @@
     </section>
     <section>
         <h2>HTML5 APIs</h2>
+        <h3>data- property</h3>
         <ul>
-            <li>
-                <code>data-</code> attribute embeds data with an element that is ignored by the browser
-            </li>
+            <li><code>data-</code> attribute embeds data with an element that is ignored by the browser</li>
+            <li>Access an element's <code>data-</code> properties with <code>element.dataset.myProperty</code></li>
         </ul>
+        <h3>Web Storage API</h3>
+        <ul>
+            <li>Web Storage API (<code>localStorage</code>) lets you save key-value pairs. Lots of advantages over cookies.</li>
+            <li><code>localStorage.name = 'Falco';</code></li>
+            <li><code>localStorage.removeItem('name');</code> or <code>delete localStorage.name</code></li>
+            <li><code>localStorage.clear()</code> removes everything stored in local storage (for that domain)</li>
+        </ul>
+        <h3>Geolocation</h3>
+        <aside class="exercise">
+            <p><a target="_blank" href="../week7/promises_geo.html">Promises practice with geolocation</a></p>
+        </aside>
+        <h3>Web Workers</h3>
+        <ul>
+            <li>Web workers run processes in the background, allowing for concurrency</li>
+            <li><code>const worker = new Worker('someFile.js');</code></li>
+            <li><code>postMessage()</code> will send a message and start the worker working</li>
+            <li>From the main file: <code>worker.postMessage('Hello')</code></li>
+            <li>Within the worker file <code>self.postMessage('Finished')</code></li>
+            <li>A <code>message</code> event is fired when a message is posted. Can be used in callbacks.</li>
+        </ul>
+        <h3>Web Sockets</h3>
+        <ul>
+            <li>Web sockets allow for an open line of communication between the server and the client, so each side can push updates to the other; think messaging application</li>
+            <li>They use secure protocol <code>wss://</code></li>
+            <aside class="exercise">
+                <p><a target="_blank" href="./websocket.html">Web socket practice</a></p>
+            </aside>
+        </ul>
+
     </section>
     <section>
         <h2>Team Activity</h2>
