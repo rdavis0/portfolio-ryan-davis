@@ -6,20 +6,9 @@ export default class QuakesView {
       listElement.innerHTML = '';
      
       quakeList.features.forEach(element => {
-        let date = new Date(element.properties.time);
-        let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-        listElement.innerHTML += `<li data-id="${element.id}">${element.properties.title} - 
-        ${time}, ${date.toDateString()}</li>`;
+        let date = new Date(element.properties.time).toLocaleString('en-US');
+        listElement.innerHTML += `<li data-id="${element.id}">${element.properties.title} - ${date}</li>`;
       });
-  //     listElement.innerHTML = quakeList.features
-  //     .map(quake => {
-  //       return `
-  // ${quake.properties.title}, ${new Date(
-  //         quake.properties.time
-  //       )}
-  // `;
-  //     })
-  //     .join('');
     }
     renderQuake(quake, element) {
       const quakeProperties = Object.entries(quake.properties);
