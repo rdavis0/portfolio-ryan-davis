@@ -20,6 +20,15 @@ body {
     background-color: #c3e2dc;
 }
 
+form label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+form input {
+    font-size: 1em;
+}
+
 code {
     background-color: #ededed;
     color: #1291e5;
