@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    $color-primary: #030C0D;
+    $color-secondary: 
+    $color-highlight:
+    $color-background: 
+    $color-neutral: 
+}
+
+
+html {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: #030C0D;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+}
+
+.heading-style {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 1.2em;
+}

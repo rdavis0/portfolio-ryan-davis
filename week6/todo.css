@@ -23,8 +23,10 @@ h1 {
 }
 
 .todo-toolbar {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: fit-content(5em) auto;
+  -ms-grid-columns: fit-content(5em) auto;
+      grid-template-columns: fit-content(5em) auto;
   margin: 0.5em 0 0.5em 0.5em;
   caret-color: transparent;
 }
@@ -32,9 +34,11 @@ h1 {
 .filter {
   display: inline;
   margin: 0;
-  justify-self: end;
+  -ms-grid-column-align: end;
+      justify-self: end;
   padding: 0;
 }
+
 .filter li {
   list-style-type: none;
   display: inline;
@@ -53,28 +57,38 @@ h1 {
 
 .todo-item {
   list-style-type: none;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: fit-content(1em) auto 1.5em;
-  align-items: center;
+  -ms-grid-columns: fit-content(1em) auto 1.5em;
+      grid-template-columns: fit-content(1em) auto 1.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-top: 1px solid black;
   padding: 0.5em;
 }
+
 .todo-item .checkbox {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 2px solid black;
   padding: 0.8em;
   margin: 0;
   cursor: pointer;
   background-color: white;
 }
+
 .todo-item label {
   padding-left: 0.5em;
   cursor: pointer;
   margin-right: 1em;
 }
+
 .todo-item .checkbox:hover {
   background-color: #d6e2e8;
 }
+
 .todo-item .checkbox:checked {
   background-color: #a5c0cc;
 }
@@ -86,24 +100,33 @@ h1 {
 .delete {
   cursor: pointer;
   caret-color: transparent;
-  justify-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   padding: 0.5em;
 }
 
 .add-todo {
   margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .add-todo input {
   font: 14px "News Cycle";
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   margin-right: 0.5em;
   padding: 0.2em 0.4em;
 }
+
 .add-todo .add-button {
   font-size: 2.5em;
-  flex-basis: auto;
-  align-self: flex-end;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   cursor: pointer;
 }
 
@@ -112,10 +135,10 @@ h1 {
     font-size: 20px;
   }
 }
+
 @media all and (min-width: 500px) {
   main {
     padding: 1rem 2rem;
   }
 }
-
 /*# sourceMappingURL=todo.css.map */

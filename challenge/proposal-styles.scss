@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$color-primary: #205169;
+$color-secondary: #102D30;
+$color-highlight: #FFE900;
+$color-background: #030C0D;
+$color-font-dark: #000203;
+$color-font-light: #D6F1FF;
+
+:root {
+    font-family: 'Lato', sans-serif;
+    color: $color-font-light;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+
+body {
+    background-color: $color-secondary;
+    margin: 0;
+}
+
+main {
+    margin: auto;
+    max-width: 1200px;
+    padding: 1em 3em;
+    background-color: $color-background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+}
+
+.heading-style {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+
+.wireframes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    img {
+        width: 100%;
+    }
+}
+
+.color-scheme {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    grid-auto-rows: 5em;
+    padding: 2em;
+    background-color: white;;
+    span {
+        display: grid;
+        border: 2px solid gray;
+        font-size: 1.5em;
+        place-items: center;
+    }
+    .primary {
+        background-color: $color-primary;
+    }
+    .secondary {
+        background-color: $color-secondary;
+    }
+    .highlight {
+        background-color: $color-highlight;
+        color: $color-font-dark;
+    }
+    .background {
+        background-color: $color-background;
+    }   
+    .font-dark {
+        background-color: $color-font-dark;
+    }
+    .font-light {
+        background-color: $color-font-light;
+        color: $color-font-dark;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    main {
+        padding: 0.5em 1.2em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .wireframes-grid {
+        grid-template-columns: 1fr;
+    }
+}

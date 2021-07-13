@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 html {
-  font-family: "Noto Sans", Arial;
+  font-family: 'Noto Sans', Arial;
   font-size: 18px;
 }
 
 body {
-  margin: 3em 5em;
-  background-color: #c3e2dc;
+  background-color: #303036;
+  margin: 0;
+}
+
+main {
+  margin: auto;
+  max-width: 1200px;
+  padding: 1em 3em;
+  background-color: #F1F9F7;
 }
 
 form label {
@@ -19,8 +26,8 @@ form input {
 }
 
 code {
-  background-color: #ededed;
-  color: #1291e5;
+  background-color: #303036;
+  color: #A1DB43;
   padding: 0 0.2em;
 }
 
@@ -29,14 +36,24 @@ button, .button {
   padding: 0.5em 1em;
   border-radius: 5px;
   border: none;
-  background-color: #58b1dd;
-  color: white;
+  background-color: #3772FF;
+  color: #F1F9F7;
   cursor: pointer;
+}
+
+.contents {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.contents li {
+  padding-left: 1em;
 }
 
 .rand {
   font-size: 1.5em;
 }
+
 .rand ~ input {
   width: 3em;
   text-align: right;
@@ -54,22 +71,25 @@ a > i {
   border-radius: 5px;
   margin: 1em;
 }
+
 .exercise .instructions {
   color: red;
 }
+
 .exercise input {
   font-size: 1.2em;
   margin: 0.2em;
   padding: 0.1em 0.3em 0.1em 0.3em;
   border-radius: 5px;
 }
+
 .exercise button, .exercise .button {
   font-size: 1em;
   padding: 0.5em 1em;
   border-radius: 5px;
   border: none;
-  background-color: #58b1dd;
-  color: white;
+  background-color: #3772FF;
+  color: #F1F9F7;
   cursor: pointer;
 }
 
@@ -78,5 +98,4 @@ a > i {
     margin: 1em 2em;
   }
 }
-
 /*# sourceMappingURL=styles.css.map */

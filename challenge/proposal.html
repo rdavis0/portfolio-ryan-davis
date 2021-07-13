@@ -4,28 +4,90 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Ryan Davis WDD 330 Portfolio</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <link rel="stylesheet" href="./proposal-styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 </head>
 
 <body>
-    <p>Obviously still have a lot of work to do on my proposal, but here is my basic idea.
-    <h1>Purpose</h1>
+    <main>
+        <h1>Purpose</h1>
         <p>Create a build calculator for the popular game, League of Legends (LoL).</p>
-        <p>In a LoL match, players earn gold through performing various actions. They use gold to buy items from the item shop, granting their character various upgrades and abilities. 
-            The items a player owns and the resulting stats their character has are collectively termed their <i>build</i>.
+        <h2>Background</h2>
+        <p>In a LoL match, players earn gold through performing various actions. They use gold to buy items from the
+            item shop, granting their character (champion) various upgrades and abilities.
+            The items a player owns and the resulting stats their champion has are collectively termed their
+            <i>build</i>.
         </p>
-        <p>To date, I have not found a good resource for simulating builds and comparing them against other possible builds. 
-            The best way to do this now is to actually launch the game in practice mode and try out different items.
-            While this method works, it is somewhat cumbersome, and obviously not suitable for "theory-crafting" away from the player's gaming machine.
-        </p>        
-    <h1>Audience</h1>
+        <p>To date, I have not found a good resource for simulating builds and comparing them against other possible
+            builds.
+            The best way to do this currently is to actually launch the game in practice mode and equip different items.
+            While this method works, it is somewhat cumbersome, and obviously not suitable for "theory-crafting" away
+            from the player's gaming machine.
+        </p>
+        <h2>Proposal</h2>
+        <p>
+            My proposal is to connect with the Riot Games API and create a build calculator where players can choose a
+            character and
+            different items to see the stats they grant.
+        </p>
+        <h3>Base Features</h3>
+        <ol>
+            <li>Import champions via API</li>
+            <li>Import items via API</li>
+            <li>User can select a champion from a list</li>
+            <li>User can select 1-6 items for their build from a list (builds max out at 6 items in game)</li>
+            <li>Display item details</li>
+            <li>Display build stats</li>
+            <li>User can delete an item from the build and add a new one</li>
+            <li>User can switch champions</li>
+            <li>Responsive design</li>
+        </ol>
+        <h3>Stretch Features</h3>
+        <ol>
+            <li>User can edit champion level</li>
+            <li>User can search for item by name</li>
+            <li>User can search for champion by name</li>
+        </ol>
+        <h1>Audience</h1>
         <p>League of Legends players</p>
-    <h1>Data Sources</h1>
-        <p><a href="https://developer.riotgames.com/">Riot Games API</a></p>
-    <h1>Initial Module list</h1>
-    <h1>Wireframes</h1>
-    <h1>Styling</h1>
-    <h1>Schedule</h1>
+        <h1>Data Sources</h1>
+        <p><a href="https://developer.riotgames.com/">Riot Games API</a> - Provided by the developer of League of
+            Legends. Provides current data on item and character stats.</p>
+        <h1>Wireframes</h1>
+        <div class='wireframes-grid'>
+            <div>
+                <h2>Start page / Champion select</h2>
+                <img src="wireframe-1-champ-select.jpg" alt="wireframe champ select">
+            </div>
+            <div>
+                <h2>Build view</h2>
+                <img src="wireframe-2-build-view.jpg" alt="wireframe build view">
+            </div>
+            <div>
+                <h2>Add Item</h2>
+                <img src="wireframe-3-add-item.jpg" alt="wireframe add item">
+            </div>
+            <div>
+                <h2>Item View</h2>
+                <img src="wireframe-4-view-item.jpg" alt="wireframe view item">
+            </div>
+        </div>
+
+        <h1>Styling</h1>
+        <h2>Fonts</h2>
+        <ul>
+            <li><p class='heading-style'>Headings: Lora - a serif font that matches the theme and mood of the game</p></li>
+            <li>Body: Lato - a sans-serif font that pairs well with Lora</li>
+        </ul>
+        <h2>Color scheme</h2>
+        <p>This is just a starting point -- not entirely sure how I'll use these colors yet or if I'll need to add some with more contrast.</p>
+        <div class='color-scheme'>
+            <span class='primary'>Primary</span>
+            <span class='secondary'>Secondary</span>
+            <span class='highlight'>Highlight</span>
+            <span class='background'>Background</span>
+            <span class='font-dark'>Font Dark</span>
+            <span class='font-light'>Font Light</span>   
+        </div>     
+    </main>
 </body>
