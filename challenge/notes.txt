@@ -25,3 +25,13 @@ index.js {
     calls init
     adds listeners 
 }
+
+Wed: Add Build class, Select champ, build view page framework, display champ stats @ lvl 1.
+Thurs: Items list, add item, delete item
+Fri: Calc stats with items
+Sat:Item display
+
+Mon: Switch champ, desktop styles
+Tues: Edit champ level
+Wed: Cleanup
+
