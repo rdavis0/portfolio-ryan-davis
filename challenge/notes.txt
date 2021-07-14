@@ -1,0 +1,27 @@
+utilities.js {
+    Generic API access functions
+    error handling
+}
+
+lbc.js {
+    Class with 
+        API URL
+        functions for specific calls
+}
+
+view.js {
+    Modifies the DOM with API data
+}
+
+controller.js {
+    init function
+    async functions calling API functions from lbc.js
+    probably build champ stats here
+}
+
+index.js {
+    the "driver"
+    creates a controller object
+    calls init
+    adds listeners 
+}
