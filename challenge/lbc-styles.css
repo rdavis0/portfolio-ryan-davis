@@ -63,10 +63,11 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   -ms-grid-columns: (minmax(80px, auto))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  gap: 0.5em;
 }
 
 .champ-list figure {
-  margin: 0 0 0.5em;
+  margin: 0;
   font-size: 0.7em;
   text-align: center;
   line-height: initial;

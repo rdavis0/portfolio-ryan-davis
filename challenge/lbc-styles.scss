@@ -64,8 +64,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+    gap: 0.5em;
     figure {
-        margin: 0 0 0.5em;
+        margin: 0;
         font-size: 0.7em;
         text-align: center;
         line-height: initial;
