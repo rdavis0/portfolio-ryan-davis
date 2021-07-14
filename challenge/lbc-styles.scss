@@ -1,29 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+$color-primary: #205169;
+$color-secondary: #102D30;
+$color-highlight: #FFE900;
+$color-background: #030C0D;
+$color-font-dark: #000203;
+$color-font-light: #D6F1FF;
+
 :root {
-    $color-primary: #030C0D;
-    $color-secondary: 
-    $color-highlight:
-    $color-background: 
-    $color-neutral: 
-}
-
-
-html {
     font-family: 'Lato', sans-serif;
+    color: $color-font-light;
+    font-size: 18px;
+    line-height: 1.4em;
 }
 
 body {
-    background-color: #030C0D;
+    background-color: $color-secondary;
+    margin: 0;
+}
+
+main {
+    margin: auto;
+    max-width: 1200px;
+    padding: 0em 1.2em;
+    background-color: $color-background;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lora', serif;
 }
 
-.heading-style {
-    font-family: 'Lora', serif;
-    font-weight: bold;
-    font-size: 1.2em;
+.site-header {
+    // display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: $color-primary;
+    line-height: 40px;
+    .site-logo {
+        margin: 2px;
+        color: $color-highlight;
+    }
+    .site-title {
+        font: bold 1.5em 'Lora', serif ;  
+        height: 40px;
+        line-height: 40px; 
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    main {
+        padding: 0 3em;
+        background-color: red;
+    }
 }
