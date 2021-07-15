@@ -40,14 +40,23 @@ Wed: alphabetize champ list, item list, Cleanup
 Build class 
     Champion
     Array Item
+    int hp
+    int hpgrowth
+    int healthRegen
+    int mana
+    int manaRegen
+
+    
 Champion class
     name
     level
     stats
     imgPath
+    resource (energy or mana or unique e.g. blood well) - get from 'partype'
 Item class
     id
     name
     desc
     cost
 
+going to need some sort of stat calculator (built in controller?)
