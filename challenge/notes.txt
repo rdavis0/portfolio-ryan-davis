@@ -29,9 +29,25 @@ index.js {
 Wed: Add Build class, Select champ, build view page framework, display champ stats @ lvl 1.
 Thurs: Items list, add item, delete item
 Fri: Calc stats with items
-Sat:Item display
+Sat:Item display, perfect mobile
 
 Mon: Switch champ, desktop styles
-Tues: Edit champ level
-Wed: Cleanup
+Tues: Edit champ level, enforce item limits?
+Wed: alphabetize champ list, item list, Cleanup
+
+
+
+Build class 
+    Champion
+    Array Item
+Champion class
+    name
+    level
+    stats
+    imgPath
+Item class
+    id
+    name
+    desc
+    cost
 
