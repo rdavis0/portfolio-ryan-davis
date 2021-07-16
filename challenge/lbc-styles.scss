@@ -79,6 +79,19 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.build-view {
+    display: none;
+}
+
+.build-view-header {
+    display: flex;
+    height: 80px;
+}
+
+.item-belt {
+    display: flex;
+}
+
 @media only screen and (min-width: 900px) {
     main {
         padding: 0 3em;

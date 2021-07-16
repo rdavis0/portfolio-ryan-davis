@@ -1,50 +1,29 @@
-utilities.js {
-    Generic API access functions
-    error handling
-}
-
-lbc.js {
-    Class with 
-        API URL
-        functions for specific calls
-}
-
-view.js {
-    Modifies the DOM with API data
-}
-
-controller.js {
-    init function
-    async functions calling API functions from lbc.js
-    probably build champ stats here
-}
-
-index.js {
-    the "driver"
-    creates a controller object
-    calls init
-    adds listeners 
-}
-
-Wed: Add Build class, Select champ, build view page framework, display champ stats @ lvl 1.
+Wed: ✅Add Build class, ✅Select champ, ✅build view page framework, ✅display champ stats @ lvl 1.
 Thurs: Items list, add item, delete item
 Fri: Calc stats with items
 Sat:Item display, perfect mobile
 
 Mon: Switch champ, desktop styles
-Tues: Edit champ level, enforce item limits?
-Wed: alphabetize champ list, item list, Cleanup
+Tues: Write report, Edit champ level, enforce item limits?
+Wed: app cleanup, portfolio cleanup, alphabetize champ/item lists
 
 
 
 Build class 
     Champion
     Array Item
-    int hp
-    int hpgrowth
-    int healthRegen
-    int mana
-    int manaRegen
+    hp
+    hpRegen
+    mana
+    manaRegen
+    atkDmg
+    atkSpd
+    armor
+    magicResist
+    mvmtSpeed
+    range
+
+
 
     
 Champion class
@@ -53,10 +32,32 @@ Champion class
     stats
     imgPath
     resource (energy or mana or unique e.g. blood well) - get from 'partype'
+    hp
+    hpGrowth
+    hpRegen
+    hpRegenGrowth
+    mana
+    manaGrowth
+    manaRegen
+    manaRegenGrowth
+    atkDmg
+    atkDmgGrowth
+    atkSpd
+    atkSpdGrowth
+    armor
+    armorGrowth
+    magicResist
+    magicResistGrowth
+    mvmtSpeed
+    range
+
+
 Item class
     id
     name
     desc
     cost
+    stats map/json?
+
 
 going to need some sort of stat calculator (built in controller?)

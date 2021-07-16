@@ -1,4 +1,4 @@
-export function apiCall(url) {
+export function getJSON(url) {
     return fetch(url)
         .then(function(response) {
             if (!response.ok) {
@@ -9,5 +9,5 @@ export function apiCall(url) {
         })
         .catch(function(error) {
             console.log(error);
-    });
+        });
 }

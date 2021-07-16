@@ -6,8 +6,8 @@
     <title>LoL Build Calc</title>
     <link rel="stylesheet" href="./lbc-styles.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
-    <script src="./main.js"></script>
-    <script src='./index.js' type='module'></script>
+    <script src="../js/common.js"></script>
+    <script src='./main.js' type='module'></script>
 </head>
 
 <body>
@@ -16,12 +16,29 @@
         <div class='site-title'>LoL Build Calc</div>
     </header>
     <main> 
-        <div class='intro'>
-            <h1>Welcome to <br> LoL Build Calc</h1>
-            <p>Choose a champion to get started.</p>
+        <div id='champ-select-view'>
+            <div class='intro' id='intro'>
+                <h1>Welcome to <br> LoL Build Calc</h1>
+                <p>Choose a champion to get started.</p>
+            </div>
+            <div class='champ-list' id='champList'>
+                Failed to load champion list
+            </div>
         </div>
-        <div class='champ-list' id='champList'>
-            Loading...
+        <div id="build-view">
+            <div class="build-view-header">
+                <img id='build-view-champ-img'>
+                <div class="champ-name" id='champ-name'></div>
+            </div>
+            <div class='item-belt' id='item-belt'>
+                <div class='item' id='item1'>🛠</div>
+                <div class='item' id='item2'>🛠</div>
+                <div class='item' id='item3'>🛠</div>
+                <div class='item' id='item4'>🛠</div>
+                <div class='item' id='item5'>🛠</div>
+                <div class='item' id='item6'>🛠</div>
+            </div>
+            <div class='build-stats-display' id='build-stats-display'></div>
         </div>
     </main>
 </body>
