@@ -8,50 +8,6 @@ Tues: Write report, Edit champ level, enforce item limits?
 Wed: app cleanup, portfolio cleanup, alphabetize champ/item lists
 
 
-
-Build class 
-    Champion
-    Array Item
-    hp
-    hpRegen
-    mana
-    manaRegen
-    atkDmg
-    atkSpd
-    armor
-    magicResist
-    mvmtSpeed
-    range
-
-
-
-    
-Champion class
-    name
-    level
-    stats
-    imgPath
-    resource (energy or mana or unique e.g. blood well) - get from 'partype'
-    hp
-    hpGrowth
-    hpRegen
-    hpRegenGrowth
-    mana
-    manaGrowth
-    manaRegen
-    manaRegenGrowth
-    atkDmg
-    atkDmgGrowth
-    atkSpd
-    atkSpdGrowth
-    armor
-    armorGrowth
-    magicResist
-    magicResistGrowth
-    mvmtSpeed
-    range
-
-
 Item class
     id
     name
