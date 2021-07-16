@@ -8,12 +8,13 @@ const champsList = champs.data;
 const build = new Build();
 const champsDiv = document.getElementById('champList');
 const champSelectView = document.getElementById('champ-select-view');
-const buildView = document.getElementById('build-view');
+const buildView = document.getElementById('build-view-container');
 const champImgPath = './data-dragon/img/champion/';
 
 
 
-renderChampList(champsList);
+// renderChampList(champsList);
+selectChampion('Jhin');
 
 function renderChampList(champsList) {
     champsDiv.innerHTML = '';
@@ -49,6 +50,8 @@ function renderBuildView() {
         p.innerText = `${stat}: ${build.stats[stat]}`;
         buildStatsDisplay.appendChild(p);
     }
+    document.querySelector('main').classList.add('build-view');
+    document.querySelector('main').classList.remove('champ-select-view');
     hide(champSelectView);
     show(buildView);
 }
