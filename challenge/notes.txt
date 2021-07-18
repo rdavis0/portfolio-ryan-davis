@@ -1,5 +1,5 @@
 Wed: ✅Add Build class, ✅Select champ, ✅build view page framework, ✅display champ stats @ lvl 1.
-Thurs: Items list, add item, delete item
+Thurs: ✅Items list, ✅add item
 Fri: Calc stats with items
 Sat:Item display, perfect mobile
 
@@ -7,13 +7,10 @@ Mon: Switch champ, desktop styles
 Tues: Write report, Edit champ level, enforce item limits?
 Wed: app cleanup, portfolio cleanup, alphabetize champ/item lists
 
-
-Item class
-    id
-    name
-    desc
-    cost
-    stats map/json?
+Todo: 
+Fix overlay for item select view
+Figure out how to not maintain a global currBeltPosition variable
+Delete item
 
 
-going to need some sort of stat calculator (built in controller?)
+Stat icons: https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/

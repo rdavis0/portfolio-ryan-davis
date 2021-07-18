@@ -6,16 +6,22 @@ $color-highlight: #FFE900;
 $color-background: #030C0D;
 $color-font-dark: #000203;
 $color-font-light: #D6F1FF;
-@mixin serif-default {
-    font-family: 'Lora', serif;
-}
+@mixin serif-default { font-family: 'Lora', serif; }
+@mixin sans-default { font-family: 'Lato', sans-serif; }
+@mixin cursive-default { font-family: 'Berkshire Swash', 'Lora', serif; }
 
-@mixin sans-default {
-    font-family: 'Lato', sans-serif;
-}
-
-@mixin cursive-default {
-    font-family: 'Berkshire Swash', 'Lora', serif;
+@mixin overlay {
+    // position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
 }
 
 :root {
@@ -23,6 +29,7 @@ $color-font-light: #D6F1FF;
     color: $color-font-light;
     font-size: 18px;
     line-height: 1.4em;
+    caret-color: transparent;
 }
 
 body {
@@ -36,7 +43,7 @@ main {
     background-color: $color-background;
     min-height: 100vh;
     &.champ-select-view {
-        padding: 2em 0.5em;
+        padding: 1em 0.5em;
     }
 }
 
@@ -72,23 +79,33 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.champ-list  {
-    margin-top: 1em;
+.grid-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+    font-size: 0.7em;
     gap: 0.5em;
+    &.champ-list {
+        grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+    }
+    &.item-list {
+        grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+    }
     figure {
         margin: 0;
-        font-size: 0.7em;
         text-align: center;
         line-height: initial;
+        cursor: pointer;
         img {
             width: 100%;
         }
         figcaption {
             opacity: 50%;
+            margin: 0 0.3em;
         }
     }
+}
+
+.champ-list  {
+    margin-top: 1em;   
 }
 
 .build-view-header {
@@ -97,8 +114,6 @@ h1, h2, h3, h4, h5, h6 {
     @include cursive-default();
     background-color: $color-secondary;
     font-size: 1.8em;
-    font-weight: semibold;
-
     .champ-name {
         margin-left: 0.3em;
         align-self: center;
@@ -106,14 +121,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .item-belt {
-    display: flex;
-    align-items: stretch;
-    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    min-height: 50px;
+    background-color: $color-primary;  
+    .build-item {
+        display: flex;
+        justify-content: center;
+        border: 2px solid $color-font-light;
+        cursor: pointer;
+        aspect-ratio: 1;
+        .add-item-button {
+            display: flex;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+    :not(.build-item:last-child) {
+        border-right: 0;
+    }
+}
+
+.build-stats-display {
+    padding: 0.2em 0.5em;
+}
+
+.start-hidden {
+    display: none;
 }
 
 @media only screen and (min-width: 900px) {
-    main {
-        padding: 0 3em;
-        background-color: red;
+    main.champ-select-view {
+        padding: 1em 3em;
     }
 }

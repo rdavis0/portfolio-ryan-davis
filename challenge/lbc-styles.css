@@ -4,6 +4,7 @@
   color: #D6F1FF;
   font-size: 18px;
   line-height: 1.4em;
+  caret-color: transparent;
 }
 
 body {
@@ -19,7 +20,7 @@ main {
 }
 
 main.champ-select-view {
-  padding: 2em 0.5em;
+  padding: 1em 0.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,28 +60,41 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2em;
 }
 
-.champ-list {
-  margin-top: 1em;
+.grid-list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(80px, auto))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  font-size: 0.7em;
   gap: 0.5em;
 }
 
-.champ-list figure {
-  margin: 0;
-  font-size: 0.7em;
-  text-align: center;
-  line-height: initial;
+.grid-list.champ-list {
+  -ms-grid-columns: (minmax(80px, auto))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(80px, auto));
 }
 
-.champ-list figure img {
+.grid-list.item-list {
+  -ms-grid-columns: (minmax(80px, auto))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+}
+
+.grid-list figure {
+  margin: 0;
+  text-align: center;
+  line-height: initial;
+  cursor: pointer;
+}
+
+.grid-list figure img {
   width: 100%;
 }
 
-.champ-list figure figcaption {
+.grid-list figure figcaption {
   opacity: 50%;
+  margin: 0 0.3em;
+}
+
+.champ-list {
+  margin-top: 1em;
 }
 
 .build-view-header {
@@ -91,7 +105,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Berkshire Swash', 'Lora', serif;
   background-color: #102D30;
   font-size: 1.8em;
-  font-weight: semibold;
 }
 
 .build-view-header .champ-name {
@@ -102,19 +115,54 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .item-belt {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  min-height: 50px;
+  background-color: #205169;
+}
+
+.item-belt .build-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  height: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid #D6F1FF;
+  cursor: pointer;
+  aspect-ratio: 1;
+}
+
+.item-belt .build-item .add-item-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-belt .build-item img {
+  max-width: 100%;
+}
+
+.item-belt :not(.build-item:last-child) {
+  border-right: 0;
+}
+
+.build-stats-display {
+  padding: 0.2em 0.5em;
+}
+
+.start-hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 900px) {
-  main {
-    padding: 0 3em;
-    background-color: red;
+  main.champ-select-view {
+    padding: 1em 3em;
   }
 }
 /*# sourceMappingURL=lbc-styles.css.map */

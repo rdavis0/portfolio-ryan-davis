@@ -10,12 +10,12 @@ export default class Build {
             movespeed: 0,
             armor: 0,
             magicResist: 0,
-            attackRange: 0,
             hpregen: 0,
             mpregen: 0,
             crit: 0,
             attackdamage: 0,
-            attackspeed: 0
+            attackspeed: 0,
+            attackrange: 0
         }
         this.hp = 0;
     }  
@@ -36,7 +36,7 @@ export default class Build {
     }
 
     setItem(item, pos) {
-        items[pos] = item;
+        this.items[pos] = item;
     }
 
 

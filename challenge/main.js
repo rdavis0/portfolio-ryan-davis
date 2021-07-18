@@ -2,28 +2,43 @@ import Build from "./build.js";
 import LolData from "./lolDataHelper.js";
 
 const ld = new LolData();
-const champs = await ld.getChampions();
-const dataDragVer = champs.version;
-const champsList = champs.data;
+await ld.init();
+const champs = ld.getChampions();
+const items = ld.getItems();
+
 const build = new Build();
+
 const champsDiv = document.getElementById('champList');
 const champSelectView = document.getElementById('champ-select-view');
-const buildView = document.getElementById('build-view-container');
 const champImgPath = './data-dragon/img/champion/';
+const buildView = document.getElementById('build-view-container');
+const itemSelectView = getElement('item-select-view');
+const itemListDiv = getElement('item-list');
+const itemImgPath = './data-dragon/img/item/'
 
+init();
 
+function init() { 
+    // Rapid testing code
+    renderChampList();
+    // selectChampion('Sivir');
+    // showItemList('buildItem1');
+    // selectItem('1056', 'buildItem1');
 
-// renderChampList(champsList);
-selectChampion('Jhin');
+    document.querySelectorAll('.build-item').forEach((item) => {
+        item.addEventListener('click', () => showItemList(item.id));
+    });
+    constructItemList();
+}
 
-function renderChampList(champsList) {
+function renderChampList() {
     champsDiv.innerHTML = '';
-    Object.keys(champsList).forEach(key => {
-        let champ = champsList[key];
+    Object.keys(champs).forEach(key => {
+        let champ = champs[key];
         let imgPath = champ.image.full;
         let fig = document.createElement('figure');
         let img = document.createElement('img');
-        img.setAttribute('src', `./data-dragon/img/champion/${imgPath}`);
+        img.setAttribute('src', champImgPath + imgPath);
         let figcaption = document.createElement('figcaption');
         figcaption.innerText = champ.name;
         fig.appendChild(img);
@@ -34,9 +49,8 @@ function renderChampList(champsList) {
     })
 }
 
-
 function selectChampion(id) {
-    build.setChampion(ld.getChampion(champsList, id));
+    build.setChampion(ld.getChampion(id));
     renderBuildView();
 }
 
@@ -54,6 +68,50 @@ function renderBuildView() {
     document.querySelector('main').classList.remove('champ-select-view');
     hide(champSelectView);
     show(buildView);
+}
+
+function showItemList(beltPosition) {
+    getElement(beltPosition).setAttribute('data-active-belt-slot', 'true');
+    // document.querySelector('main').classList.add('item-select-view');
+    show(itemSelectView);
+}
+
+function constructItemList() {
+    Object.keys(items).forEach(key => {
+        let item = items[key];
+        let imgPath = item.image.full;
+        let fig = document.createElement('figure');
+        let img = document.createElement('img');
+        img.setAttribute('src', itemImgPath + imgPath);
+        let figcaption = document.createElement('figcaption');
+        figcaption.innerText = item.name;
+        fig.appendChild(img);
+        fig.appendChild(figcaption);
+        fig.setAttribute('id', item.id);
+        fig.addEventListener('click', () => selectItem(key, document.querySelector('div[data-active-belt-slot="true"]').id));
+        itemListDiv.appendChild(fig);
+    })
+}
+
+function selectItem(itemId, beltPosition) {
+    // add the item to the belt
+    addItemToBelt(itemId, beltPosition);
+
+    // close the item view
+    hide(itemSelectView);
+
+    // add item to the build
+    build.setItem(ld.getItem(itemId), beltPosition);
+}
+
+function addItemToBelt(itemId, beltPosition) {
+    let buildItemDiv = getElement(beltPosition);
+    buildItemDiv.innerHTML = '';
+    let img = document.createElement('img');
+    let imgPath = ld.getItem(itemId).image.full;
+    img.setAttribute('src', itemImgPath + imgPath);
+    buildItemDiv.appendChild(img);
+    buildItemDiv.removeAttribute('data-active-belt-slot');
 }
 
 function hide(element) {
