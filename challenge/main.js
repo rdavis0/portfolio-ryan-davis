@@ -19,9 +19,10 @@ const itemImgPath = './data-dragon/img/item/'
 init();
 
 function init() { 
-    // Rapid testing code
     renderChampList();
-    // selectChampion('Sivir');
+
+    // Rapid testing code
+    selectChampion('Sivir');
     // showItemList('buildItem1');
     // selectItem('1056', 'buildItem1');
 
