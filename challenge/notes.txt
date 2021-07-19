@@ -9,7 +9,6 @@ Wed: app cleanup, portfolio cleanup, alphabetize champ/item lists
 
 Todo: 
 Fix overlay for item select view
-Figure out how to not maintain a global currBeltPosition variable
 Delete item
 Account for energy champs and other forms of ability juice
 Missing 
@@ -26,7 +25,6 @@ Missing
     ability haste
     energy
     energy regen
-    ability power?
     experience
     gold gen
     
