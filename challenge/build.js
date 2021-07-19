@@ -81,7 +81,7 @@ export default class Build {
 
     calcStats() {
         this.setStatsToBase();
-        for(var item in this.items) {
+        this.items.forEach((item) => {
             for(var modifier in item.stats) {
                 let affectedStat = getAffectedStat(modifier);
                 let buffValue = item.stats[modifier];  
@@ -92,7 +92,7 @@ export default class Build {
                     this.stats[affectedStat].value *= (1 + buffValue);
                 }   
             }
-        }
+        });
         
         function getModifierType(modifier) {
             if(modifier.toLowerCase().includes('flat')) 
