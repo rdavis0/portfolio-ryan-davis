@@ -1,11 +1,6 @@
 import Build from "./build.js";
 import LolData from "./lolDataHelper.js";
 
-async function getLocationAsync() {
-    await getLocation();
-    adjustContentForLocation(UserLocation);
-}
-
 const ld = new LolData();
 
 // (async () => {
