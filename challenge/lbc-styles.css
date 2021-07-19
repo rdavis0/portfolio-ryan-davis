@@ -38,7 +38,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .site-logo {
   margin: 2px;
-  color: #FFE900;
 }
 
 .site-header .site-title {
@@ -70,6 +69,19 @@ h1, h2, h3, h4, h5, h6 {
 .grid-list.champ-list {
   -ms-grid-columns: (minmax(80px, auto))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+}
+
+.grid-list.champ-list.loading {
+  -ms-grid-columns: 20px auto;
+      grid-template-columns: 20px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.grid-list.champ-list.loading p {
+  margin: 0;
+  font-size: 1.2em;
 }
 
 .grid-list.item-list {
@@ -162,6 +174,89 @@ h1, h2, h3, h4, h5, h6 {
 
 .start-hidden {
   display: none;
+}
+
+.loading-animation-container {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+}
+
+.morphing-circle {
+  height: 100%;
+  width: 100%;
+  background-color: #205169;
+  border-radius: 50%;
+  -webkit-transition: border-radius .5s ease,  background-color .5s ease,  -webkit-transform .5s ease .5s;
+  transition: border-radius .5s ease,  background-color .5s ease,  -webkit-transform .5s ease .5s;
+  transition: border-radius .5s ease,  background-color .5s ease,  transform .5s ease .5s;
+  transition: border-radius .5s ease,  background-color .5s ease,  transform .5s ease .5s,  -webkit-transform .5s ease .5s;
+  -webkit-animation: morphing-circle-square 1.5s linear infinite;
+          animation: morphing-circle-square 1.5s linear infinite;
+}
+
+@-webkit-keyframes morphing-circle-square {
+  0% {
+    border-radius: 50%;
+  }
+  25% {
+    /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
+    border-radius: 50%;
+    background-color: #205169;
+  }
+  50% {
+    /* now change to white square...but don't start rotating yet! */
+    border-radius: 0%;
+    background-color: #D6F1FF;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  75% {
+    /* stay a white square, but rotate 90deg */
+    border-radius: 0%;
+    background-color: #D6F1FF;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  100% {
+    /* stay rotated at 90, but change back to a circle */
+    border-radius: 50%;
+    background-color: #205169;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes morphing-circle-square {
+  0% {
+    border-radius: 50%;
+  }
+  25% {
+    /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
+    border-radius: 50%;
+    background-color: #205169;
+  }
+  50% {
+    /* now change to white square...but don't start rotating yet! */
+    border-radius: 0%;
+    background-color: #D6F1FF;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  75% {
+    /* stay a white square, but rotate 90deg */
+    border-radius: 0%;
+    background-color: #D6F1FF;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  100% {
+    /* stay rotated at 90, but change back to a circle */
+    border-radius: 50%;
+    background-color: #205169;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
 }
 
 @media only screen and (min-width: 900px) {

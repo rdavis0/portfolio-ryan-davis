@@ -18,11 +18,14 @@
     <main class='champ-select-view'> 
         <div id='champ-select-view'>
             <div class='intro' id='intro'>
-                <h1>Welcome to <br> LoL Build Calc</h1>
+                <h1>Welcome to<br>LoL Build Calc</h1>
                 <p>Choose a champion to get started.</p>
             </div>
-            <div class='champ-list grid-list' id='champList'>
-                Failed to load champion list
+            <div class='champ-list grid-list loading' id='champList'>
+                <div class='loading-animation-container'>
+                    <div class="morphing-circle"></div>
+                </div>
+                <p>Loading champion list...</p>
             </div>
         </div>
         <div id="build-view-container" class='start-hidden'>

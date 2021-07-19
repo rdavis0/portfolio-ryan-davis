@@ -33,6 +33,7 @@ function init() {
 }
 
 function renderChampList() {
+    champsDiv.classList.remove('loading');
     champsDiv.innerHTML = '';
     Object.keys(champs).forEach(key => {
         let champ = champs[key];
