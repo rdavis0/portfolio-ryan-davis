@@ -156,6 +156,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.2em 0.5em;
 }
 
+.build-stats-display .build-stat {
+  margin: 0.5em;
+}
+
 .start-hidden {
   display: none;
 }

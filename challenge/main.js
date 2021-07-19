@@ -18,13 +18,13 @@ const itemImgPath = './data-dragon/img/item/'
 
 init();
 
-function init() { 
+function init() {
     renderChampList();
 
     // Rapid testing code
-    selectChampion('Sivir');
-    // showItemList('buildItem1');
-    // selectItem('1056', 'buildItem1');
+    // selectChampion('Blitzcrank');
+    // showItemList('buildItem0');
+    // selectItem('1001', 'buildItem0');
 
     document.querySelectorAll('.build-item').forEach((item) => {
         item.addEventListener('click', () => showItemList(item.id));
@@ -60,19 +60,32 @@ function renderBuildView() {
     getElement('build-view-champ-img').alt = build.champion.name;
     getElement('champ-name').innerText = build.champion.name;
     let buildStatsDisplay = getElement('build-stats-display');
-    for(let stat in build.stats) {
+    for (let stat in build.stats) {
         let p = document.createElement('p');
-        p.innerText = `${stat}: ${build.stats[stat]}`;
+        p.classList.add('build-stat');
+        p.setAttribute('id', stat);
         buildStatsDisplay.appendChild(p);
     }
+    updateBuildStatsDisplay();
+
     document.querySelector('main').classList.add('build-view');
     document.querySelector('main').classList.remove('champ-select-view');
     hide(champSelectView);
     show(buildView);
 }
 
-function showItemList(beltPosition) {
-    getElement(beltPosition).setAttribute('data-active-belt-slot', 'true');
+function updateBuildStatsDisplay() {
+    for (let stat in build.stats) {
+        if(stat === 'crit') {
+            let critPercent = Intl.NumberFormat('en-US', {style: 'percent'}).format(build.stats[stat].value);
+            getElement(stat).innerText = `${build.stats[stat].formatted}: ${critPercent}`;
+        }
+        else getElement(stat).innerText = `${build.stats[stat].formatted}: ${build.stats[stat].value}`;
+    }
+}
+
+function showItemList(buildItemId) {
+    getElement(buildItemId).setAttribute('data-active-belt-slot', 'true');
     // document.querySelector('main').classList.add('item-select-view');
     show(itemSelectView);
 }
@@ -94,19 +107,19 @@ function constructItemList() {
     })
 }
 
-function selectItem(itemId, beltPosition) {
+function selectItem(itemId, buildItemId) {
     // add the item to the belt
-    addItemToBelt(itemId, beltPosition);
-
+    addItemToBelt(itemId, buildItemId);
     // close the item view
     hide(itemSelectView);
-
     // add item to the build
-    build.setItem(ld.getItem(itemId), beltPosition);
+    build.setItem(ld.getItem(itemId), getElement(buildItemId).getAttribute('data-belt-position'));
+    // update build view with new stats
+    updateBuildStatsDisplay();
 }
 
-function addItemToBelt(itemId, beltPosition) {
-    let buildItemDiv = getElement(beltPosition);
+function addItemToBelt(itemId, buildItemId) {
+    let buildItemDiv = getElement(buildItemId);
     buildItemDiv.innerHTML = '';
     let img = document.createElement('img');
     let imgPath = ld.getItem(itemId).image.full;
