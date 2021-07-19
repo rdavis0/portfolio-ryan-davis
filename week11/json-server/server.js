@@ -79,7 +79,6 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
     return;
   }
   try {
-    console.log('checking token');
     verifyToken(req.headers.authorization.split(' ')[1]);
 
     next();

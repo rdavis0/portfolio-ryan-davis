@@ -22,9 +22,9 @@ function init() {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Blitzcrank');
-    // showItemList('buildItem0');
-    // selectItem('1001', 'buildItem0');
+    selectChampion('Blitzcrank');
+    showItemList('buildItem3');
+    selectItem('1001', 'buildItem3');
 
     document.querySelectorAll('.build-item').forEach((item) => {
         item.addEventListener('click', () => showItemList(item.id));

@@ -81,7 +81,7 @@ export default class Build {
 
     calcStats() {
         this.setStatsToBase();
-        for(var item of this.items) {
+        for(var item in this.items) {
             for(var modifier in item.stats) {
                 let affectedStat = getAffectedStat(modifier);
                 let buffValue = item.stats[modifier];  
@@ -93,7 +93,6 @@ export default class Build {
                 }   
             }
         }
-        console.log(this.stats.movespeed.value);
         
         function getModifierType(modifier) {
             if(modifier.toLowerCase().includes('flat')) 

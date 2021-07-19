@@ -2,7 +2,6 @@
 export default class QuakesView {
     renderQuakeList(quakeList, listElement) {
       //build a list of the quakes...include the title and time of each quake then append the list to listElement. You should also add the id of the quake record as a data- property to the li. ie. <li data-id="">
-      console.log(quakeList);
       listElement.innerHTML = '';
      
       quakeList.features.forEach(element => {
