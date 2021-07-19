@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
         justify-content: center;
         border: 2px solid $color-font-light;
         cursor: pointer;
-        aspect-ratio: 1;
+        aspect-ratio: 1;  //possible trouble with iOS
         .add-item-button {
             display: flex;
             align-items: center;
