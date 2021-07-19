@@ -1,13 +1,24 @@
 import Build from "./build.js";
 import LolData from "./lolDataHelper.js";
 
+async function getLocationAsync() {
+    await getLocation();
+    adjustContentForLocation(UserLocation);
+}
+
 const ld = new LolData();
-await ld.init();
-const champs = ld.getChampions();
-const items = ld.getItems();
+
+// (async () => {
+//         await ld.init();
+//     })().catch(e => {
+//         getElement('champList').innerHTML = 'Champs list failed to load.'
+// });
+// const champs = ld.getChampions();
+// const items = ld.getItems();
 
 const build = new Build();
-
+let champs = null;
+let items = null;
 const champsDiv = document.getElementById('champList');
 const champSelectView = document.getElementById('champ-select-view');
 const champImgPath = './data-dragon/img/champion/';
@@ -16,20 +27,41 @@ const itemSelectView = getElement('item-select-view');
 const itemListDiv = getElement('item-list');
 const itemImgPath = './data-dragon/img/item/'
 
-init();
+init().then(() => {
+    champs = ld.getChampions();
+        items = ld.getItems();
+        renderChampList();
 
-function init() {
-    renderChampList();
+        // Rapid testing code
+        selectChampion('Blitzcrank');
+        showItemList('buildItem3');
+        selectItem('1001', 'buildItem3');
 
-    // Rapid testing code
-    // selectChampion('Blitzcrank');
-    // showItemList('buildItem3');
-    // selectItem('1001', 'buildItem3');
+        document.querySelectorAll('.build-item').forEach((item) => {
+            item.addEventListener('click', () => showItemList(item.id));
+        });
+        constructItemList();
+});
 
-    document.querySelectorAll('.build-item').forEach((item) => {
-        item.addEventListener('click', () => showItemList(item.id));
-    });
-    constructItemList();
+async function init(){
+    await ld.init().catch(e => {
+        getElement('champList').innerHTML = 'Champs list failed to load.'
+    })
+    // .then(() => {
+    //     this.champs = ld.getChampions();
+    //     this.items = ld.getItems();
+    //     renderChampList();
+
+    //     // Rapid testing code
+    //     // selectChampion('Blitzcrank');
+    //     // showItemList('buildItem3');
+    //     // selectItem('1001', 'buildItem3');
+
+    //     document.querySelectorAll('.build-item').forEach((item) => {
+    //         item.addEventListener('click', () => showItemList(item.id));
+    //     });
+    //     constructItemList();
+    // });
 }
 
 function renderChampList() {
