@@ -8,6 +8,10 @@ $color-background: #030C0D;
 $color-font-dark: #000203;
 $color-font-light: #D6F1FF;
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     font-family: 'Lato', sans-serif;
     color: $color-font-light;
@@ -18,10 +22,48 @@ $color-font-light: #D6F1FF;
 body {
     background-color: $color-secondary;
     margin: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+
+header {
+    background-color: $color-primary;
+    height: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    margin: 0 0.5em;
+    .fa-home, .challenge-link {
+        color: $color-font-light;    
+    }
+    .challenge-link {
+        text-align: right;
+        text-decoration: none;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        p {
+            margin: 0;
+        }
+        .fas {
+            margin-left: 0.2em;
+        }
+    }
+    :hover {
+        color: $color-highlight;
+    }
 }
 
 main {
-    margin: auto;
     max-width: 1200px;
     padding: 1em 3em;
     background-color: $color-background;

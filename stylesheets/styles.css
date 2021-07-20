@@ -49,17 +49,14 @@ header {
 .header-content {
   width: 100%;
   max-width: 1200px;
-}
-
-header .home-link {
   margin-left: 0.5em;
 }
 
-header .home-link .fa-home {
+.header-content .fa-home {
   color: #F1F9F7;
 }
 
-header .home-link :hover {
+.header-content :hover {
   color: #FC5130;
 }
 

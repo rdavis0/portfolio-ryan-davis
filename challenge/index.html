@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="Simple and intuitive League of Legends Build Calculator. Mobile friendly!">
     <title>LoL Build Calc</title>
+    <link rel="icon"
+        href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>&lt;text y=%22.9em%22 font-size=%2290%22>⚔&lt;/text>&lt;/svg>">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
     <link rel="stylesheet" href="./lbc-styles.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
     <script src="../js/common.js"></script>
     <script src='./main.js' type='module'></script>
 </head>
@@ -16,7 +19,7 @@
         <i class="fas fa-calculator fa-2x site-logo"></i>
         <div class='site-title'>LoL Build Calc</div>
     </header>
-    <main class='champ-select-view'> 
+    <main class='champ-select-view'>
         <div id='champ-select-view'>
             <div class='intro' id='intro'>
                 <h1>Welcome to<br>LoL Build Calc</h1>
@@ -35,12 +38,18 @@
                 <div class="champ-name" id='champ-name'></div>
             </div>
             <div class='item-belt' id='item-belt'>
-                <div class='build-item' id='buildItem0' data-belt-position='0'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
-                <div class='build-item' id='buildItem1' data-belt-position='1'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
-                <div class='build-item' id='buildItem2' data-belt-position='2'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
-                <div class='build-item' id='buildItem3' data-belt-position='3'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
-                <div class='build-item' id='buildItem4' data-belt-position='4'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
-                <div class='build-item' id='buildItem5' data-belt-position='5'><i class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem0' data-belt-position='0'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem1' data-belt-position='1'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem2' data-belt-position='2'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem3' data-belt-position='3'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem4' data-belt-position='4'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
+                <div class='build-item' id='buildItem5' data-belt-position='5'><i
+                        class="fas fa-plus-circle fa-2x add-item-button"></i></div>
             </div>
             <div id='item-select-view' class='item-select-view start-hidden'>
                 <div class='item-list grid-list' id='item-list'></div>
