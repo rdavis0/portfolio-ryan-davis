@@ -181,6 +181,15 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.item-belt .build-item:before {
+  content: "";
+  height: 0;
+  display: inline-block;
+  padding-top: 100%;
+  width: 1px;
+  position: relative;
+}
+
 .item-belt :not(.build-item:last-child) {
   border-right: 0;
 }
