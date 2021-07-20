@@ -20,7 +20,7 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    selectChampion('Blitzcrank');
+    // selectChampion('Blitzcrank');
     // showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 
