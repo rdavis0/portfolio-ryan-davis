@@ -11,6 +11,7 @@ Todo:
 Fix overlay for item select view
 Delete item
 Account for energy champs and other forms of ability juice
+Override back button?
 Missing 
     armor pen
     lethality
