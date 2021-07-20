@@ -93,7 +93,8 @@ div.codeblock {
 }
 
 button, .button {
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   padding: 0.5em 1em;
   margin: 0.5em;
   border-radius: 5px;
@@ -172,7 +173,7 @@ a > i {
 }
 
 .exercise .instructions {
-  color: red;
+  color: #A30000;
   margin: 0 0 1em 0;
 }
 

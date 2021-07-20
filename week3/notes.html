@@ -59,7 +59,7 @@
 <body>
     <header>
         <div class='header-content'>
-            <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+            <a href="/" class="home-link" aria-label="home"><i class="fas fa-home fa-3x"></i></a>
         </div>
     </header>
     <main>
@@ -113,8 +113,12 @@
                 <p class="instructions">Write a JavaScript function to get the values of First and Last name of the
                     following form.</p>
                 <form id="form1" onsubmit="getFormValue()">
-                    First name: <input type="text" name="fname" value="David"><br>
-                    Last name: <input type="text" name="lname" value="Beckham"><br>
+                    <label>First name: 
+                        <input type="text" name="fname" value="David"><br>
+                    </label> 
+                    <label>Last name: 
+                        <input type="text" name="lname" value="Beckham"><br>
+                    </label>
                     <input class="button" type="submit" value="Submit">
                 </form>
             </aside>
