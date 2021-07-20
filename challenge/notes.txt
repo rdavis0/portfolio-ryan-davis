@@ -32,3 +32,29 @@ Missing
     https://leagueoflegends.fandom.com/wiki/Champion_statistic
 
 Stat icons: https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/
+
+
+// from init()
+    .then(() => {
+        this.champs = ld.getChampions();
+        this.items = ld.getItems();
+        renderChampList();
+
+        // Rapid testing code
+        // selectChampion('Blitzcrank');
+        // showItemList('buildItem3');
+        // selectItem('1001', 'buildItem3');
+
+        document.querySelectorAll('.build-item').forEach((item) => {
+            item.addEventListener('click', () => showItemList(item.id));
+        });
+        constructItemList();
+    });
+
+    // (async () => {
+//         await ld.init();
+//     })().catch(e => {
+//         getElement('champList').innerHTML = 'Champs list failed to load.'
+// });
+// const champs = ld.getChampions();
+// const items = ld.getItems();

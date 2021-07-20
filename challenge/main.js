@@ -3,14 +3,6 @@ import LolData from "./lolDataHelper.js";
 
 const ld = new LolData();
 
-// (async () => {
-//         await ld.init();
-//     })().catch(e => {
-//         getElement('champList').innerHTML = 'Champs list failed to load.'
-// });
-// const champs = ld.getChampions();
-// const items = ld.getItems();
-
 const build = new Build();
 let champs = null;
 let items = null;
@@ -24,39 +16,24 @@ const itemImgPath = './data-dragon/img/item/'
 
 init().then(() => {
     champs = ld.getChampions();
-        items = ld.getItems();
-        renderChampList();
+    items = ld.getItems();
+    renderChampList();
 
-        // Rapid testing code
-        // selectChampion('Blitzcrank');
-        // showItemList('buildItem3');
-        // selectItem('1001', 'buildItem3');
+    // Rapid testing code
+    // selectChampion('Blitzcrank');
+    // showItemList('buildItem3');
+    // selectItem('1001', 'buildItem3');
 
-        document.querySelectorAll('.build-item').forEach((item) => {
-            item.addEventListener('click', () => showItemList(item.id));
-        });
-        constructItemList();
+    document.querySelectorAll('.build-item').forEach((item) => {
+        item.addEventListener('click', () => showItemList(item.id));
+    });
+    constructItemList();
 });
 
 async function init(){
     await ld.init().catch(e => {
         getElement('champList').innerHTML = 'Champs list failed to load.'
     })
-    // .then(() => {
-    //     this.champs = ld.getChampions();
-    //     this.items = ld.getItems();
-    //     renderChampList();
-
-    //     // Rapid testing code
-    //     // selectChampion('Blitzcrank');
-    //     // showItemList('buildItem3');
-    //     // selectItem('1001', 'buildItem3');
-
-    //     document.querySelectorAll('.build-item').forEach((item) => {
-    //         item.addEventListener('click', () => showItemList(item.id));
-    //     });
-    //     constructItemList();
-    // });
 }
 
 function renderChampList() {
@@ -114,7 +91,6 @@ function updateBuildStatsDisplay() {
 
 function showItemList(buildItemId) {
     getElement(buildItemId).setAttribute('data-active-belt-slot', 'true');
-    // document.querySelector('main').classList.add('item-select-view');
     show(itemSelectView);
 }
 

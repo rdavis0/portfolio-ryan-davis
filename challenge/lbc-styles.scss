@@ -10,6 +10,10 @@ $color-font-light: #D6F1FF;
 @mixin sans-default { font-family: 'Lato', sans-serif; }
 @mixin cursive-default { font-family: 'Berkshire Swash', 'Lora', serif; }
 
+* {
+    box-sizing: border-box;
+}
+
 @mixin overlay {
     // position: fixed;
     display: none;
@@ -32,29 +36,19 @@ $color-font-light: #D6F1FF;
     caret-color: transparent;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: $color-secondary;
     margin: 0;
-}
-
-main {
-    margin: auto;
-    max-width: 1200px;
-    background-color: $color-background;
-    min-height: 100vh;
-    &.champ-select-view {
-        padding: 1em 0.5em;
-    }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    @include serif-default;
-}
-
-.site-header {
     display: flex;
-    width: 100%;
-    height: 40px;
+    flex-flow: column;
+}
+header {
+    flex: 0 1 auto;
+    display: flex;
     background-color: $color-primary;
     .site-logo {
         margin: 2px;
@@ -64,6 +58,21 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 40px; 
         margin-left: 0.3em;
     }
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    background-color: $color-background;
+    align-self: center;
+    flex: 1 1 auto;
+    &.champ-select-view {
+        padding: 1em 0.5em;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @include serif-default;
 }
 
 .intro {
@@ -138,13 +147,12 @@ h1, h2, h3, h4, h5, h6 {
         justify-content: center;
         border: 2px solid $color-font-light;
         cursor: pointer;
-        aspect-ratio: 1;  //possible trouble with iOS
         .add-item-button {
             display: flex;
             align-items: center;
         }
         img {
-            max-width: 100%;
+            width: 100%;
         }
     }
     :not(.build-item:last-child) {
