@@ -48,6 +48,7 @@ function renderChampList() {
         let fig = document.createElement('figure');
         let img = document.createElement('img');
         img.setAttribute('src', champImgPath + imgPath);
+        img.setAttribute('alt', champ.name);
         let figcaption = document.createElement('figcaption');
         figcaption.innerText = champ.name;
         fig.appendChild(img);
@@ -104,6 +105,7 @@ function constructItemList() {
         let fig = document.createElement('figure');
         let img = document.createElement('img');
         img.setAttribute('src', itemImgPath + imgPath);
+        img.setAttribute('alt', item.name);
         let figcaption = document.createElement('figcaption');
         figcaption.innerText = item.name;
         fig.appendChild(img);
@@ -131,6 +133,7 @@ function addItemToBelt(itemId, buildItemId) {
     let img = document.createElement('img');
     let imgPath = ld.getItem(itemId).image.full;
     img.setAttribute('src', itemImgPath + imgPath);
+    img.setAttribute('alt', ld.getItem(itemId).name);
     buildItemDiv.appendChild(img);
     buildItemDiv.removeAttribute('data-active-belt-slot');
 }
