@@ -86,8 +86,8 @@
                     order
                     <br>
                     <code>function greet({greeting,name,age}) { <br>
-                return `${greeting}! My name is ${name} and I am ${age} years old.`;
-            }</code>
+                        return `${greeting}! My name is ${name} and I am ${age} years old.`;
+                    }</code>
                 </li>
             </ul>
             <aside class="exercise">
@@ -144,13 +144,14 @@
                 <li>Touch events are used for smartphones and tablets</li>
                 <li>There are no swipe events; must be built with a combination of <code>touchstart</code>,
                     <code>touchmove</code>, and <code>touchleave</code>, or use a library</li>
-                <li>Event propagation</li>
-                <ul>
-                    <li>Bubbling (default) is when an event fires on the element clicked first, then bubbles up the
-                        document (e.g. li to ul to body to html)</li>
-                    <li>Capturing is when the the event fires on the root element first, then propagates downwards
-                        through children to the target element (e.g. ul to li)</li>
-                </ul>
+                <li>Event propagation
+                    <ul>
+                        <li>Bubbling (default) is when an event fires on the element clicked first, then bubbles up the
+                            document (e.g. li to ul to body to html)</li>
+                        <li>Capturing is when the the event fires on the root element first, then propagates downwards
+                            through children to the target element (e.g. ul to li)</li>
+                    </ul>
+                </li>
             </ul>
             <aside class="exercise">
                 <p><a target="_blank" href="events/events.html">Events practice</a></p>

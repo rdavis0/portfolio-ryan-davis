@@ -93,6 +93,16 @@ code {
     padding: 0 0.2em;
 }
 
+div.codeblock {
+    background-color: $jet;
+    padding: 1em;
+    border: dashed 5px $blue-crayola;
+    border-radius: 3px;
+    color: $yellow-green;
+    font-family: monospace;
+    margin: 1em 0;
+}
+
 button, .button {
     @include button;
 }
@@ -116,7 +126,7 @@ a > i {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     justify-items: center;
-    padding-inline-start: 0;
+    padding: 0;
     li {
         list-style-type: none;
         margin: 0;
@@ -167,6 +177,10 @@ a > i {
 }
 
 @media only screen and (max-width: 900px) {
+    body {
+        line-height: 1.3em;
+    }
+
     h1 {
         font-size: 1.75em;
     }
@@ -187,6 +201,14 @@ a > i {
     .exercise {
         padding: 0 1em;
         margin: 0;
+    }
+    
+    ul {
+        padding: 0.5em;
+    }
+
+    li {
+        margin-top: 0.5em;
     }
 }
 
