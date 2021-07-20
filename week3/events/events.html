@@ -1,30 +1,51 @@
-<!doctype html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset='utf-8'>
-<title>Events Examples</title>
-<style>
-    p, ul {
-        width: 200px;
-        height: 200px;
-        margin: 10px;
-        background-color: #ccc;
-        float: left;
-    }
-    .highlight {
-        background-color: red;
-    }
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>WDD 330 Portfolio</title>
+    <meta name="description" content="Notes and practice on Objects, the DOM, and Events">
+    <link rel="stylesheet" href="../../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="../../js/common.js" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js" defer></script>
+    <script src='events.js' defer></script>
+    <style>
+        p,
+        ul {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: #ccc;
+            float: left;
+        }
+
+        .highlight {
+            background-color: red;
+        }
+    </style>
 </head>
+
 <body>
-    <p id='click'>Click On Me</p>
-    <p id='dblclick'>Double Click On Me</p>
-    <p id='mouse'>Hover On Me</p>
-        <ul id='list'>
-            <li>one</li>
-            <li>two</li>
-            <li>three</li>
-        </ul>
-    <script src='events.js'></script>
-</body>
+    <header>
+        <div class='header-content'>
+            <a href="../../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+        </div>
+    </header>
+        <main>
+            <p id='click'>Click On Me</p>
+            <p id='dblclick'>Double Click On Me</p>
+            <p id='mouse'>Hover On Me</p>
+            <ul id='list'>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+            </ul>
+            <div>See console for results</div>
+        </main>
+    </body>
+
 </html>

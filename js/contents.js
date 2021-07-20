@@ -1,8 +1,4 @@
 const links = [{
-        label: "Week 1",
-        url: "week1/notes.html"
-    },
-    {
         label: "Week 3",
         url: "week3/notes.html"
     },
@@ -15,7 +11,7 @@ const links = [{
         url: "week5/notes.html"
     },
     {
-        label: "Week 6 / Todo application",
+        label: "Todo application",
         url: "week6/todo.html"
     },
     {
@@ -40,7 +36,7 @@ const links = [{
     },
     {
         label: "Challenge Proposal",
-        url: "challenge/proposal.html"
+        url: "challenge/proposal/proposal.html"
     },
     {
         label: "Challenge",

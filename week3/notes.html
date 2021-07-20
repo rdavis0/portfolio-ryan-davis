@@ -2,10 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Ryan Davis WDD 330 Portfolio</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>WDD 330 Week 3</title>
+    <meta name="description" content="Notes and practice on Objects, the DOM, and Events">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="../js/common.js" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js" defer></script>
+    <script>hljs.highlightAll();</script>
     <script>
         let calculator = {
             read() {
@@ -52,99 +59,105 @@
 </head>
 
 <body>
+    <header>
+        <div class='header-content'>
+            <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+        </div>
+    </header>
     <main>
-    <a href="../index.html">Home</a>
-    <h1>Week 3</h1>
-    <section>
-        <h2>Object Methods: this</h2>
-        <ul>
-            <li>
-                <code>this</code> behaves differently from other programming languages; it's unbound, can be used in
-                functions that are not methods of an object
-            </li>
-        </ul>
-        <button onClick=calc()>Calculator</button>
-    </section>
-    <section>
-        <h2>Objects</h2>
-        <ul>
-            <li>All objects are mutable while program is running</li>
-            <li>Use <code>'property' in object</code> to check if object has a property. <code>hasOwnProperty</code>
-                checks for non-inherited properties</li>
-            <li>Objects are passed by reference. Copies point to the same object in memory. The opposite is true of
-                primitives.</li>
-            <li>An object can be passed as a parameter to a function, allowing you to pass the parameters in any order
-                <br>
-                <code>function greet({greeting,name,age}) { <br>
+        <h1>Week 3</h1>
+        <section>
+            <h2>Object Methods: this</h2>
+            <ul>
+                <li>
+                    <code>this</code> behaves differently from other programming languages; it's unbound, can be used in
+                    functions that are not methods of an object
+                </li>
+            </ul>
+            <button onClick=calc()>Calculator</button>
+        </section>
+        <section>
+            <h2>Objects</h2>
+            <ul>
+                <li>All objects are mutable while program is running</li>
+                <li>Use <code>'property' in object</code> to check if object has a property. <code>hasOwnProperty</code>
+                    checks for non-inherited properties</li>
+                <li>Objects are passed by reference. Copies point to the same object in memory. The opposite is true of
+                    primitives.</li>
+                <li>An object can be passed as a parameter to a function, allowing you to pass the parameters in any
+                    order
+                    <br>
+                    <code>function greet({greeting,name,age}) { <br>
                 return `${greeting}! My name is ${name} and I am ${age} years old.`;
             }</code>
-            </li>
-        </ul>
-        <aside class="exercise">
-            <h3>Random integer generator</h3>
-            <label for="randMin" class="rand">Min: </label>
-            <input id="randMin" class="rand">
-            <label for="randMax" class="rand">Max: </label>
-            <input id="randMax" class="rand">
-            <button onClick="genRand()">Generate</button>
-            <p id="randResult"></p>
-        </aside>
-    </section>
-    <section>
-        <h2>The Document Object Model</h2>
-        <ul>
-            <li>DOM is a representation of HTML in a tree structure</li>
-            <li>Node lists are array-like objects; items can be accssed through index notation</li>
-            <li><code>classList</code> property will return a list of all classes of an element</li>
-            <li>Avoid having to insert nodes in the tree with <code>innerHTML</code></li>
-        </ul>
-        <aside class="exercise">
-            <h3>w3resource JavaScript DOM Exercise 2 <a target="_blank"
-                    href="https://www.w3resource.com/javascript-exercises/javascript-dom-exercises.php#"><i
-                        class="fas fa-external-link-alt"></i></a></h3>
-            <p class="instructions">Write a JavaScript function to get the values of First and Last name of the
-                following form.</p>
-            <form id="form1" onsubmit="getFormValue()">
-                First name: <input type="text" name="fname" value="David"><br>
-                Last name: <input type="text" name="lname" value="Beckham"><br>
-                <input class="button" type="submit" value="Submit">
-            </form>
-        </aside>
-        <aside class="exercise">
-            <h3>w3resource JavaScript DOM Exercise 8 <a target="_blank"
-                    href="https://www.w3resource.com/javascript-exercises/javascript-dom-exercises.php#"><i
-                        class="fas fa-external-link-alt"></i></a></h3>
-            <p class="instructions">Write a JavaScript program to remove items from a dropdown list.</p>
-            <form>
-                <select id="colorSelect">
-                    <option>Red</option>
-                    <option>Green</option>
-                    <option>White</option>
-                    <option>Black</option>
-                </select>
-                <input class="button" type="button" onclick="removeColor()" value="Select and Remove">
-            </form>
-        </aside>
-    </section>
-    <section>
-        <h2 id="events">Events</h2>
-        <ul>
-            <li>Event listeners are a non-blocking approach to handling events</li>
-            <li><code>click</code> even counts mouse clicks, enter key, and touchscreen taps</li>
-            <li>Event listeners are the current standard. <code>document.body.addEventListener('click', myFunction);</code></li>
-            <li>Touch events are used for smartphones and tablets</li>
-            <li>There are no swipe events; must be built with a combination of <code>touchstart</code>, <code>touchmove</code>, and <code>touchleave</code>, or use a library</li>
-            <li>Event propagation</li>
-            <ul>
-                <li>Bubbling (default) is when an event fires on the element clicked first, then bubbles up the document (e.g. li to ul to body to html)</li>
-                <li>Capturing is when the the event fires on the root element first, then propagates downwards through children to the target element (e.g. ul to li)</li>
+                </li>
             </ul>
-        </ul>
-        <aside class="exercise">
-           <p><a target="_blank" href="events/events.html">Events practice</a></p>
-        </aside>
-    </section>
-</main>
-
-    <script src="../js/common.js"></script>
+            <aside class="exercise">
+                <h3>Random integer generator</h3>
+                <label for="randMin" class="rand">Min: <input id="randMin" class="rand"></label>
+                <label for="randMax" class="rand">Max: <input id="randMax" class="rand"></label>
+                <button onClick="genRand()">Generate</button>
+                <p id="randResult"></p>
+            </aside>
+        </section>
+        <section>
+            <h2>The Document Object Model</h2>
+            <ul>
+                <li>DOM is a representation of HTML in a tree structure</li>
+                <li>Node lists are array-like objects; items can be accssed through index notation</li>
+                <li><code>classList</code> property will return a list of all classes of an element</li>
+                <li>Avoid having to insert nodes in the tree with <code>innerHTML</code></li>
+            </ul>
+            <aside class="exercise">
+                <h3>w3resource JavaScript DOM Exercise 2 <a target="_blank"
+                        href="https://www.w3resource.com/javascript-exercises/javascript-dom-exercises.php#"><i
+                            class="fas fa-external-link-alt"></i></a></h3>
+                <p class="instructions">Write a JavaScript function to get the values of First and Last name of the
+                    following form.</p>
+                <form id="form1" onsubmit="getFormValue()">
+                    First name: <input type="text" name="fname" value="David"><br>
+                    Last name: <input type="text" name="lname" value="Beckham"><br>
+                    <input class="button" type="submit" value="Submit">
+                </form>
+            </aside>
+            <aside class="exercise">
+                <h3>w3resource JavaScript DOM Exercise 8 <a target="_blank"
+                        href="https://www.w3resource.com/javascript-exercises/javascript-dom-exercises.php#"><i
+                            class="fas fa-external-link-alt"></i></a></h3>
+                <p class="instructions">Write a JavaScript program to remove items from a dropdown list.</p>
+                <form>
+                    <select id="colorSelect">
+                        <option>Red</option>
+                        <option>Green</option>
+                        <option>White</option>
+                        <option>Black</option>
+                    </select>
+                    <input class="button" type="button" onclick="removeColor()" value="Select and Remove">
+                </form>
+            </aside>
+        </section>
+        <section>
+            <h2 id="events">Events</h2>
+            <ul>
+                <li>Event listeners are a non-blocking approach to handling events</li>
+                <li><code>click</code> even counts mouse clicks, enter key, and touchscreen taps</li>
+                <li>Event listeners are the current standard.
+                    <code>document.body.addEventListener('click', myFunction);</code></li>
+                <li>Touch events are used for smartphones and tablets</li>
+                <li>There are no swipe events; must be built with a combination of <code>touchstart</code>,
+                    <code>touchmove</code>, and <code>touchleave</code>, or use a library</li>
+                <li>Event propagation</li>
+                <ul>
+                    <li>Bubbling (default) is when an event fires on the element clicked first, then bubbles up the
+                        document (e.g. li to ul to body to html)</li>
+                    <li>Capturing is when the the event fires on the root element first, then propagates downwards
+                        through children to the target element (e.g. ul to li)</li>
+                </ul>
+            </ul>
+            <aside class="exercise">
+                <p><a target="_blank" href="events/events.html">Events practice</a></p>
+            </aside>
+        </section>
+    </main>
 </body>
+</html>

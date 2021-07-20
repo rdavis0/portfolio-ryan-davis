@@ -1,3 +1,5 @@
+
+
 import Build from "./build.js";
 import LolData from "./lolDataHelper.js";
 
@@ -12,7 +14,7 @@ const champImgPath = './data-dragon/img/champion/';
 const buildView = document.getElementById('build-view-container');
 const itemSelectView = getElement('item-select-view');
 const itemListDiv = getElement('item-list');
-const itemImgPath = './data-dragon/img/item/'
+const itemImgPath = './data-dragon/img/item/';
 
 init().then(() => {
     champs = ld.getChampions();
@@ -32,8 +34,9 @@ init().then(() => {
 
 async function init(){
     await ld.init().catch(e => {
-        getElement('champList').innerHTML = 'Champs list failed to load.'
-    })
+        console.log(e);
+        getElement('champList').innerHTML = 'Champs list failed to load.';
+    });
 }
 
 function renderChampList() {
@@ -52,7 +55,7 @@ function renderChampList() {
         fig.setAttribute('id', champ.id);
         fig.addEventListener('click', () => selectChampion(champ.id));
         champsDiv.appendChild(fig);
-    })
+    });
 }
 
 function selectChampion(id) {
@@ -108,7 +111,7 @@ function constructItemList() {
         fig.setAttribute('id', item.id);
         fig.addEventListener('click', () => selectItem(key, document.querySelector('div[data-active-belt-slot="true"]').id));
         itemListDiv.appendChild(fig);
-    })
+    });
 }
 
 function selectItem(itemId, buildItemId) {
