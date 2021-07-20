@@ -1,105 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
-        <title>WDD 330 Week 4</title>
-        <meta name="description" content="Notes and practice on Objects, the DOM, and Events">
-        <link rel="stylesheet" href="../stylesheets/normalize.css">
-        <link rel="stylesheet" href="../stylesheets/styles.css">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-        <script src="../js/common.js" defer></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-    </head>
-    
-    <body>
-        <header>
-            <div class='header-content'>
-                <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
-            </div>
-        </header>
-        <main>
-            <h1>Week 4</h1>
-            <section>
-                <h2>Forms</h2>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>WDD 330 Week 4</title>
+    <meta name="description" content="Notes and practice on Forms and Object Oriented Programming">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="../js/common.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class='header-content'>
+            <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+        </div>
+    </header>
+    <main>
+        <h1>Week 4</h1>
+        <section>
+            <h2>Forms</h2>
+            <ul>
+                <li>Get collection of forms from a page with <code>document.forms</code></li>
+                <li>Forms trigger a number of <a href="../week3/notes.html#events">Events</a></li>
                 <ul>
-                    <li>Get collection of forms from a page with <code>document.forms</code></li>
-                    <li>Forms trigger a number of <a href="../week3/notes.html#events">Events</a></li>
-                    <ul>
-                        <li><code>focus</code></li>
-                        <li><code>blur</code> when an element loses focus</li>
-                        <li><code>change</code> when an element loses focus after being changed</li>
-                        <li><code>submit</code></li>
-                    </ul>
-                    <li>Use <code>value</code> attribute to read content of form fields</li>
-                    <li><code>placeholder</code> attribute prefills the field with helper text that is not submitted if the user doesn't replace it</li>
-                    <li><code>event.preventDefault()</code> can be used in a script to prevent the form from being submitted</li>
-                    <li>Forms can contain various input field types</li>
-                    <ul>
-                        <li><code>text</code> (default)</li>
-                        <li><code>password</code></li>
-                        <li><code>checkbox</code>; use the same <code>name</code> property to access them as an HTML collection like <code>form.myName</code></li>
-                        <li><code>radio</code></li>
-                    </ul>
-                    <li>Forms fields can be hidden with <code>type='hidden'</code></li>
-                    <li><code>type='file'</code> to upload files in a form field. Here's the default browser implementation: </li>
-                    <form>
-                        <input type="file" name="" id="">
-                    </form>
-                    <li>Other input types like <code>number</code>, <code>tel</code>, <code>color</code> can be used to trigger different virtual keyboards or input elements. Examples below: </li> 
-                    <form>
-                        <p> 
-                            <label for="number">Number: </label>
-                            <input type="number" name='number'>
-                        </p>
-                        <p>
-                            <label for='color'>Color:</label>
-                            <input name = 'color' type="color">
-                        </p>
-                        <p>
-                            <label for="tel">Tel: </label>
-                            <input type="tel" name='tel'>
-                        </p>
-                        <p>
-                            <label for="date">Date: </label>
-                            <input type="date" name="date" id="">
-                        </p>
-                    </form>
-                    <li>Form validation can be done via HTML5 or custom Javascript. The text says HTML5 is not widely supported, but I don't think that's still the case.</li>
+                    <li><code>focus</code></li>
+                    <li><code>blur</code> when an element loses focus</li>
+                    <li><code>change</code> when an element loses focus after being changed</li>
+                    <li><code>submit</code></li>
                 </ul>
-            </section>
-            <section>
-                <h2>Object Oriented Programming in Javascript</h2>
+                <li>Use <code>value</code> attribute to read content of form fields</li>
+                <li><code>placeholder</code> attribute prefills the field with helper text that is not submitted if the
+                    user doesn't replace it</li>
+                <li><code>event.preventDefault()</code> can be used in a script to prevent the form from being submitted
+                </li>
+                <li>Forms can contain various input field types</li>
                 <ul>
-                    <li>Javascript started as a prototype-based language, meaning an actual object is used as the blueprint for creating more objects (as opposed to class-based)</li>
-                    <li>JavaScript added class support in ES6</li>
-                    <li>Two ways to create a new object:</li>
+                    <li><code>text</code> (default)</li>
+                    <li><code>password</code></li>
+                    <li><code>checkbox</code>; use the same <code>name</code> property to access them as an HTML
+                        collection like <code>form.myName</code></li>
+                    <li><code>radio</code></li>
+                </ul>
+                <li>Forms fields can be hidden with <code>type='hidden'</code></li>
+                <li><code>type='file'</code> to upload files in a form field. Here's the default browser implementation:
+                </li>
+                <form>
+                    <input type="file" name="" id="">
+                </form>
+                <li>Other input types like <code>number</code>, <code>tel</code>, <code>color</code> can be used to
+                    trigger different virtual keyboards or input elements. Examples below: </li>
+                <form>
+                    <p>
+                        <label for="number">Number: </label>
+                        <input type="number" name='number'>
+                    </p>
+                    <p>
+                        <label for='color'>Color:</label>
+                        <input name='color' type="color">
+                    </p>
+                    <p>
+                        <label for="tel">Tel: </label>
+                        <input type="tel" name='tel'>
+                    </p>
+                    <p>
+                        <label for="date">Date: </label>
+                        <input type="date" name="date" id="">
+                    </p>
+                </form>
+                <li>Form validation can be done via HTML5 or custom Javascript. The text says HTML5 is not widely
+                    supported, but I don't think that's still the case.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Object Oriented Programming in Javascript</h2>
+            <ul>
+                <li>Javascript started as a prototype-based language, meaning an actual object is used as the blueprint
+                    for creating more objects (as opposed to class-based)</li>
+                <li>JavaScript added class support in ES6</li>
+                <li>Two ways to create a new object:</li>
                 <div class='codeblock'>
                     const dice = { <br>
                     sides: 6, <br>
                     roll() { <br>
-                        return Math.floor(this.sides * Math.random() + 1) <br>
-                    }    <br>
-                }
+                    return Math.floor(this.sides * Math.random() + 1) <br>
+                    } <br>
+                    }
                 </div>
-<div class='codeblock'>const Dice = function(sides=6){
-    this.sides = sides;
-    this.roll = function() {
-        return Math.floor(this.sides * Math.random() + 1)
-    }
-}
-</div>     
-                <li>Instantiate the object with <code>const d20 = new Dice(20);</code></li>      
+                <div class='codeblock'>const Dice = function(sides=6){
+                    this.sides = sides;
+                    this.roll = function() {
+                    return Math.floor(this.sides * Math.random() + 1)
+                    }
+                    }
+                </div>
+                <li>Instantiate the object with <code>const d20 = new Dice(20);</code></li>
                 <li>What is the purpose of built-in Object constructor? <code>obj = new Object();</code></li>
-                <li>Recommended to use literals to construct arrays <code>const arr = [1, 2, 3]</code> because of strange behavior when using object constructor <code>Array()</code></li>
-                <li>Use <code>static</code> keyword in class declaration for methods called by the class directly rather than instances of the class</li>     
-                <li>The prototype property can be used to add new default properties or methods after the declaration: <code>Turtle.prototype.weapon = 'Hands';</code></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Team Activity</h2>
-                <a target="_blank" href="tictactoe/tic-tac-toe.html">Tic Tac Toe</a>
-            </section>
-        </main>
-        <script>hljs.highlightAll();</script>
-    </body>
+                <li>Recommended to use literals to construct arrays <code>const arr = [1, 2, 3]</code> because of
+                    strange behavior when using object constructor <code>Array()</code></li>
+                <li>Use <code>static</code> keyword in class declaration for methods called by the class directly rather
+                    than instances of the class</li>
+                <li>The prototype property can be used to add new default properties or methods after the declaration:
+                    <code>Turtle.prototype.weapon = 'Hands';</code></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Team Activity</h2>
+            <a target="_blank" href="tictactoe/tic-tac-toe.html">Tic Tac Toe</a>
+        </section>
+    </main>
+</body>

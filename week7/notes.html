@@ -2,107 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <title>Ryan Davis WDD 330 Portfolio</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>WDD 330 Week 7</title>
+    <meta name="description" content="Notes and practice on Functions and Ajax">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="../js/common.js" defer></script>
 </head>
 
 <body>
-    <a href="../index.html">Home</a>
-    <h1>Week 7</h1>
-    <section>
-        <h2>Team Activity</h2>
-        <a href="./hiking-complete.html">Hiking Comments</a>
-    </section>
-    <section>
-        <h2>Ch. 11: Further Functions</h2>
-        <ul>
-            <li>JS functions are first-class objects - they can be passed around like any other value</li>
-            <li>Use call() method to set value of this with an existing object</li>
-<pre><code>function sayHello(){
-    return `Hello, my name is ${ this.name }`;
-}
+    <header>
+        <div class='header-content'>
+            <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+        </div>
+    </header>
+    <main>
+        <a href="../index.html">Home</a>
+        <h1>Week 7</h1>
+        <section>
+            <h2>Team Activity</h2>
+            <a href="./hiking-complete.html">Hiking Comments</a>
+        </section>
+        <section>
+            <h2>Ch. 11: Further Functions</h2>
+            <ul>
+                <li>JS functions are first-class objects - they can be passed around like any other value</li>
+                <li>Use call() method to set value of this with an existing object
+                <div class='codeblock'>function sayHello(){ <br>
+                    return `Hello, my name is ${ this.name }`;<br>
+                    }<br>
+                    <br>
+                    const clark = { name: 'Clark' };<br>
+                    const bruce = { name: 'Bruce' };<br>
+                    sayHello.call(clark);<br>
+                    &lt;&lt; 'Hello, my name is Clarke' sayHello.call(bruce); &lt;&lt; 'Hello, my name is Bruce' </div>
+                </li>
+                        <li>Immediately Invoked Function Expression (IIFE) - an anonymous function invoked as soon as
+                            it's defined
+                        <div class='codeblock'>(function(){<br>
+                            const temp = 'World';<br>
+                            console.log(`Hello ${temp}`);<br>
+                            })();<br>
+                            &lt;&lt; 'Hello World' </div>
+                        </li>
 
-const clark = { name: 'Clark' };
-const bruce = { name: 'Bruce' };
-sayHello.call(clark);
-<< 'Hello, my name is Clarke'
-sayHello.call(bruce);
-<< 'Hello, my name is Bruce'
-</code></pre>
-            <li>Immediately Invoked Function Expression (IIFE) - an anonymous function invoked as soon as it's defined</li>
-<pre><code>(function(){
-const temp = 'World';
-console.log(`Hello ${temp}`);
-})();
-<< 'Hello World'</code></pre>
-            <li>IIFEs can be useful for operations requiring a temporary varibale; ensures it is not used again outside of its scope</li>
-        </ul>
-        <h3>Promises</h3>
-        <aside class="exercise">
-            <p><a target="_blank" href="./promises_geo.html">Promises practice with geolocation</a></p>
-        </aside>
-        <h3>Closures</h3>
-        <ul>
-            <li>
-                A reference to a variable that was created inside the scope of another funciton, but then kept alive
-            </li>
-            <li>Inner functions have access to variables created in a surrounding outer function</li>
-<pre><code>function outer() {
-    const outside = 'Outside!';
-    function inner() {
-        const inside = 'Inside!';
-        console.log(outside);
-        console.log(inside);
-    }
-    console.log(outside);
-    inner();
-}</code></pre>
-            <li>A closure is formed when the inner function is returned by the outer function: <code>function outer () { ...some code... return inner; }</code></li> The closure now has access to both the inner and outer variables.
-        </ul>
-        <h3>Pure Functions</h3>
-        <ol>
-            <li>Return value only depends on values provided as arguments</li>
-            <li>There are no side-effects. Only non-destructive data transformations and return new values</li>
-            <li>Referential transparency. Same arguments always give same results.</li>
-        </ol>
-    </section>
-    <section>
-        <h2>Ch. 13: Ajax</h2>
-        <ul>
-            <li>Ajax: A technique that allows web pages to communicate asynchronously with a server, dynamically updates web pages without reloading.</li>
-        </ul>
-        <h3>Fetch API</h3>
-        <ul>
-            <li>Fetch API is the living standard for requesting and sending data async across network</li>
-            <li><code>fetch()</code> returns a promise that resolves to the response returned from the URL</li>
-            <li>Errors like 404 count as success in terms of the promise, so check for <code>response.ok</code> in if statement</li>
-            <li>Example of a JSON response promise:</li>
-<pre><code>fetch(url)
-.then( response => response.json() ); // transforms the JSON data into a JavaScript object
-.then( data => console.log(Object.entries(data)) )
-.catch( error => console.log('There was an error: ', error))</code></pre>
-        </ul>    
-        <h3>Headers</h3>
-        <ul>
-            <li>HTTP headers are used to pass additional information about a request or response</li>
-            <li>Fetch API introduced <code>Headers</code> interface: <code>const headers = new Headers();</code></li>
-            <li><code>Headers.has()</code> check if the headers obj contains the header passed as a param</li>
-            <li><code>Headers.get()</code> returns value of the header passed as argument</li>
-            <li><code>Headers.set()</code> create or set value of header</li>
-            <li><code>Headers.append()</code></li>
-            <li><code>Headers.delete()</code></li>
-            <li>Iterate over headers with <code>keys()</code>, <code>values()</code>, and <code>entries()</code>.</li>
-        </ul>
-        <aside class="exercise">
-            <p><a target="_blank" href="./ajax.html">Ajax fetch practice</a></p>
-        </aside>
-    </section>
-   
-    <!-- Javascript -->
-    <script src="../js/common.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+                                <li>IIFEs can be useful for operations requiring a temporary varibale; ensures it is not
+                                    used again outside of its scope</li>
+            </ul>
+            <h3>Promises</h3>
+            <aside class="exercise">
+                <p><a target="_blank" href="./promises_geo.html">Promises practice with geolocation</a></p>
+            </aside>
+            <h3>Closures</h3>
+            <ul>
+                <li>
+                    A reference to a variable that was created inside the scope of another funciton, but then kept alive
+                </li>
+                <li>Inner functions have access to variables created in a surrounding outer function
+                <div class='codeblock'>function outer() {<br>
+                    const outside = 'Outside!';<br>
+                    function inner() {<br>
+                    const inside = 'Inside!';<br>
+                    console.log(outside);<br>
+                    console.log(inside);<br>
+                    }<br>
+                    console.log(outside);<br>
+                    inner();<br>
+                    }</div>
+                </li>
+                <li>A closure is formed when the inner function is returned by the outer function:
+                    <code>function outer () { ...some code... return inner; }</code>
+                The closure now has access to both the inner and outer variables.
+            </li> 
+            </ul>
+            <h3>Pure Functions</h3>
+            <ol>
+                <li>Return value only depends on values provided as arguments</li>
+                <li>There are no side-effects. Only non-destructive data transformations and return new values</li>
+                <li>Referential transparency. Same arguments always give same results.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Ch. 13: Ajax</h2>
+            <ul>
+                <li>Ajax: A technique that allows web pages to communicate asynchronously with a server, dynamically
+                    updates web pages without reloading.</li>
+            </ul>
+            <h3>Fetch API</h3>
+            <ul>
+                <li>Fetch API is the living standard for requesting and sending data async across network</li>
+                <li><code>fetch()</code> returns a promise that resolves to the response returned from the URL</li>
+                <li>Errors like 404 count as success in terms of the promise, so check for <code>response.ok</code> in
+                    if statement</li>
+                <li>Example of a JSON response promise:
+                <div class='codeblock'>fetch(url)<br>
+                    .then( response => response.json() ); // transforms the JSON data into a JavaScript object<br>
+                    .then( data => console.log(Object.entries(data)) )<br>
+                    .catch( error => console.log('There was an error: ', error))</div>
+                </li>
+            </ul>
+            <h3>Headers</h3>
+            <ul>
+                <li>HTTP headers are used to pass additional information about a request or response</li>
+                <li>Fetch API introduced <code>Headers</code> interface: <code>const headers = new Headers();</code>
+                </li>
+                <li><code>Headers.has()</code> check if the headers obj contains the header passed as a param</li>
+                <li><code>Headers.get()</code> returns value of the header passed as argument</li>
+                <li><code>Headers.set()</code> create or set value of header</li>
+                <li><code>Headers.append()</code></li>
+                <li><code>Headers.delete()</code></li>
+                <li>Iterate over headers with <code>keys()</code>, <code>values()</code>, and <code>entries()</code>.
+                </li>
+            </ul>
+            <aside class="exercise">
+                <p><a target="_blank" href="./ajax.html">Ajax fetch practice</a></p>
+            </aside>
+        </section>
+    </main>
 </body>

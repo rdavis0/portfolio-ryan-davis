@@ -1,13 +1,12 @@
 var index = 0;
 
 document.querySelectorAll('.square').forEach(item => {
-    item.addEventListener('touchend', event => {
+    item.addEventListener('click', () => {
             if(index % 2 == 0) {
                 item.innerHTML = "X";
             }
             else {
                 item.innerHTML = "O";
-
             }
             index++;
         }
