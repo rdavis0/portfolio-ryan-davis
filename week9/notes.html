@@ -2,91 +2,107 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <title>Ryan Davis WDD 330 Portfolio</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>WDD 330 Week 9</title>
+    <meta name="description" content="The Window Object, HTML5 APIs, Web Workers, Multimedia">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="../js/common.js" defer></script>
 </head>
 
 <body>
-    <a href="../index.html">Home</a>
-    <h1>Week 9</h1>
-    <section>
-        <h2>The Window Object</h2>
-        <ul>
-            <li>The <code>window</code> object is the global object; contains global variables and methods as its properties</li>
-            <li><code>this</code> in the global scope refers to the global object</li>
-            <li><code>alert()</code>, <code>confirm()</code>, and <code>prompt()</code> are methods of the window object</li>
-            <li>The <code>Navigator</code> object contains information about the browser. Access with <code>window.navigator</code></li>
-            <li><code>window.location</code> contains information about the URL of the current page</li>
-            <li>Use <code>window.history</code> to access info about history in the current session</li>
-        </ul>
-        <h3>Cookies</h3>
-        <ul>
-            <li>Create a cookie with <code>document.cookie = 'foo=bar';</code></li>
-            <li>Cookies are read with <code>document.cookie</code>, but come back as a single string:</li>
-<pre><code>document.cookie:
-<< "name=Batman; hero=true; city=Gotham"
-</code></pre>
-            <li>Cookies expire at the end of the browser session but can be made to last longer with <code>expires=date</code> or <code>max-age= //value in seconds</code></li>
-            <li>Libraries like Cookies.js or jsCookie make cookie management easier</li>
-        </ul>
-    </section>
-    <section>
-        <h2>HTML5 APIs</h2>
-        <h3>data- property</h3>
-        <ul>
-            <li><code>data-</code> attribute embeds data with an element that is ignored by the browser</li>
-            <li>Access an element's <code>data-</code> properties with <code>element.dataset.myProperty</code></li>
-        </ul>
-        <h3>Web Storage API</h3>
-        <ul>
-            <li>Web Storage API (<code>localStorage</code>) lets you save key-value pairs. Lots of advantages over cookies.</li>
-            <li><code>localStorage.name = 'Falco';</code></li>
-            <li><code>localStorage.removeItem('name');</code> or <code>delete localStorage.name</code></li>
-            <li><code>localStorage.clear()</code> removes everything stored in local storage (for that domain)</li>
-        </ul>
-        <h3>Geolocation</h3>
-        <aside class="exercise">
-            <p><a target="_blank" href="../week7/promises_geo.html">Promises practice with geolocation</a></p>
-        </aside>
-        <h3>Web Workers</h3>
-        <ul>
-            <li>Web workers run processes in the background, allowing for concurrency</li>
-            <li><code>const worker = new Worker('someFile.js');</code></li>
-            <li><code>postMessage()</code> will send a message and start the worker working</li>
-            <li>From the main file: <code>worker.postMessage('Hello')</code></li>
-            <li>Within the worker file <code>self.postMessage('Finished')</code></li>
-            <li>A <code>message</code> event is fired when a message is posted. Can be used in callbacks.</li>
-        </ul>
-        <h3>Web Sockets</h3>
-        <ul>
-            <li>Web sockets allow for an open line of communication between the server and the client, so each side can push updates to the other; think messaging application</li>
-            <li>They use secure protocol <code>wss://</code></li>
+    <header>
+        <div class='header-content'>
+            <a href="../index.html" class="home-link"><i class="fas fa-home fa-3x"></i></a>
+        </div>
+    </header>
+    <main>
+        <h1>Week 9</h1>
+        <section>
+            <h2>The Window Object</h2>
+            <ul>
+                <li>The <code>window</code> object is the global object; contains global variables and methods as its
+                    properties</li>
+                <li><code>this</code> in the global scope refers to the global object</li>
+                <li><code>alert()</code>, <code>confirm()</code>, and <code>prompt()</code> are methods of the window
+                    object</li>
+                <li>The <code>Navigator</code> object contains information about the browser. Access with
+                    <code>window.navigator</code>
+                </li>
+                <li><code>window.location</code> contains information about the URL of the current page</li>
+                <li>Use <code>window.history</code> to access info about history in the current session</li>
+            </ul>
+            <h3>Cookies</h3>
+            <ul>
+                <li>Create a cookie with <code>document.cookie = 'foo=bar';</code></li>
+                <li>Cookies are read with <code>document.cookie</code>, but come back as a single string:
+                    <div class="codeblock"> document.cookie:<br>
+                        &lt;&lt; "name=Batman; hero=true; city=Gotham"
+                    </div>
+                </li>
+                <li>Cookies expire at the end of the browser session but can be made to last longer with
+                    <code>expires=date</code> or <code>max-age= //value in seconds</code>
+                </li>
+                <li>Libraries like Cookies.js or jsCookie make cookie management easier</li>
+            </ul>
+        </section>
+        <section>
+            <h2>HTML5 APIs</h2>
+            <h3>data- property</h3>
+            <ul>
+                <li><code>data-</code> attribute embeds data with an element that is ignored by the browser</li>
+                <li>Access an element's <code>data-</code> properties with <code>element.dataset.myProperty</code></li>
+            </ul>
+            <h3>Web Storage API</h3>
+            <ul>
+                <li>Web Storage API (<code>localStorage</code>) lets you save key-value pairs. Lots of advantages over
+                    cookies.</li>
+                <li><code>localStorage.name = 'Falco';</code></li>
+                <li><code>localStorage.removeItem('name');</code> or <code>delete localStorage.name</code></li>
+                <li><code>localStorage.clear()</code> removes everything stored in local storage (for that domain)</li>
+            </ul>
+            <h3>Geolocation</h3>
             <aside class="exercise">
-                <p><a target="_blank" href="./websocket.html">Web socket practice</a></p>
+                <p><a target="_blank" href="../week7/promises_geo.html">Promises practice with geolocation</a></p>
             </aside>
-        </ul>
-        <h3>Multimedia</h3>
-        <ul>
-            <li><code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags can insert multimedia into webpage</li>
-            <li>Content inside these tags displays if user's browser doesn't support the tags</li>
-<pre><code>&lt;video src='url' controls>
-    Your browser does not support playing videos. Please update to a modern browser. It's 2021.
-&lt;video>
-</code></pre>            
-            <li>Multimedia practice in Team Activity below</li>
-        </ul>
-
-    </section>
-    <section>
-        <h2>Team Activity</h2>
-    </section>
-    <a href="./drumkit.html">Drumkit</a>
-
-    <!-- Javascript -->
-    <script src="../js/common.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+            <h3>Web Workers</h3>
+            <ul>
+                <li>Web workers run processes in the background, allowing for concurrency</li>
+                <li><code>const worker = new Worker('someFile.js');</code></li>
+                <li><code>postMessage()</code> will send a message and start the worker working</li>
+                <li>From the main file: <code>worker.postMessage('Hello')</code></li>
+                <li>Within the worker file <code>self.postMessage('Finished')</code></li>
+                <li>A <code>message</code> event is fired when a message is posted. Can be used in callbacks.</li>
+            </ul>
+            <h3>Web Sockets</h3>
+            <ul>
+                <li>Web sockets allow for an open line of communication between the server and the client, so each side
+                    can push updates to the other; think messaging application</li>
+                <li>They use secure protocol <code>wss://</code></li>
+            </ul>
+                <aside class="exercise">
+                    <p><a target="_blank" href="./websocket.html">Web socket practice</a></p>
+                </aside>
+        
+            <h3>Multimedia</h3>
+            <ul>
+                <li><code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags can insert multimedia into webpage
+                </li>
+                <li>Content inside these tags displays if user's browser doesn't support the tags
+                    <div class="codeblock">&lt;video src='url' controls><br>
+                        Your browser does not support playing videos. Please update to a modern browser. It's 2021.<br>
+                        &lt;video>
+                    </div>
+                </li>
+                <li>Multimedia practice in Team Activity below</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Team Activity</h2>
+        </section>
+        <a href="./drumkit.html">Drumkit</a>
+    </main>
 </body>
