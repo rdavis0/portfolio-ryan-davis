@@ -8,6 +8,7 @@ Tues: Write report, Edit champ level, enforce item limits?
 Wed: app cleanup, portfolio cleanup, alphabetize champ/item lists
 
 Todo: 
+Change favicon to champ image
 Fix overlay for item select view
 Delete item
 Account for energy champs and other forms of ability juice

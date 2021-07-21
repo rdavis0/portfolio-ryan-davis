@@ -12,7 +12,8 @@
   caret-color: transparent;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -50,7 +51,7 @@ header .site-title {
 
 main {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1800px;
   background-color: #030C0D;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -64,7 +65,12 @@ main.champ-select-view {
   padding: 1em 0.5em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Lora', serif;
 }
 
@@ -86,9 +92,6 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   font-size: 0.7em;
   gap: 0.5em;
-}
-
-.grid-list.champ-list {
   -ms-grid-columns: (minmax(80px, auto))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(80px, auto));
 }
@@ -107,22 +110,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .grid-list.item-list {
-  -ms-grid-columns: (minmax(80px, auto))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  margin-top: 1em;
 }
 
 .grid-list figure {
   margin: 0;
   text-align: center;
   line-height: initial;
-  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
 }
 
-.grid-list figure img {
+.grid-list figure:hover {
+  outline: 2px solid #FFE900;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.grid-list img {
   width: 100%;
 }
 
-.grid-list figure figcaption {
+.grid-list figcaption {
   opacity: 50%;
   margin: 0 0.3em;
 }
@@ -146,6 +158,19 @@ h1, h2, h3, h4, h5, h6 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.build-view-header .edit-champ-button {
+  margin-left: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-right: 0.1em;
+}
+
+.build-view-header .edit-champ-button :hover {
+  color: #FFE900;
+  cursor: pointer;
 }
 
 .item-belt {
@@ -194,6 +219,21 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 0;
 }
 
+.item-belt .build-item:hover {
+  border: 3px solid #FFE900;
+  cursor: pointer;
+}
+
+.item-belt .build-item:hover .add-item-button {
+  color: #FFE900;
+  cursor: pointer;
+}
+
+.item-belt .build-item[data-active-belt-slot="true"] {
+  border: 3px solid #FFE900;
+  cursor: pointer;
+}
+
 .build-stats-display {
   padding: 0.2em 0.5em;
 }
@@ -217,10 +257,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   background-color: #205169;
   border-radius: 50%;
-  -webkit-transition: border-radius .5s ease,  background-color .5s ease,  -webkit-transform .5s ease .5s;
-  transition: border-radius .5s ease,  background-color .5s ease,  -webkit-transform .5s ease .5s;
-  transition: border-radius .5s ease,  background-color .5s ease,  transform .5s ease .5s;
-  transition: border-radius .5s ease,  background-color .5s ease,  transform .5s ease .5s,  -webkit-transform .5s ease .5s;
+  -webkit-transition: border-radius .5s ease, background-color .5s ease, -webkit-transform .5s ease .5s;
+  transition: border-radius .5s ease, background-color .5s ease, -webkit-transform .5s ease .5s;
+  transition: border-radius .5s ease, background-color .5s ease, transform .5s ease .5s;
+  transition: border-radius .5s ease, background-color .5s ease, transform .5s ease .5s, -webkit-transform .5s ease .5s;
   -webkit-animation: morphing-circle-square 1.5s linear infinite;
           animation: morphing-circle-square 1.5s linear infinite;
 }
@@ -290,8 +330,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media only screen and (min-width: 900px) {
+  :root {
+    font-size: 22px;
+  }
   main.champ-select-view {
     padding: 1em 3em;
+  }
+  .grid-list {
+    display: -ms-grid;
+    display: grid;
+    font-size: 0.8em;
+    gap: 1em;
+    -ms-grid-columns: (minmax(120px, auto))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(120px, auto));
   }
 }
 /*# sourceMappingURL=lbc-styles.css.map */

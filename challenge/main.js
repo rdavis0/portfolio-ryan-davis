@@ -22,8 +22,8 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Blitzcrank');
-    // showItemList('buildItem3');
+    selectChampion('Blitzcrank');
+    showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 
     document.querySelectorAll('.build-item').forEach((item) => {
@@ -59,6 +59,13 @@ function renderChampList() {
     });
 }
 
+function showChampSelect() {
+    hide(buildView);
+    document.querySelector('main').classList.add('champ-select-view');
+    document.querySelector('main').classList.remove('build-view');
+    show(champSelectView);
+}
+
 function selectChampion(id) {
     build.setChampion(ld.getChampion(id));
     renderBuildView();
@@ -79,6 +86,7 @@ function renderBuildView() {
 
     document.querySelector('main').classList.add('build-view');
     document.querySelector('main').classList.remove('champ-select-view');
+    getElement('edit-champ-button').addEventListener('click', showChampSelect);
     hide(champSelectView);
     show(buildView);
 }
@@ -94,6 +102,12 @@ function updateBuildStatsDisplay() {
 }
 
 function showItemList(buildItemId) {
+    //deselect any previously selected belt slots
+    document.querySelectorAll('.build-item[data-active-belt-slot="true"]').forEach((el) => {
+        el.removeAttribute('data-active-belt-slot');
+    });
+
+    //set the selected belt slot
     getElement(buildItemId).setAttribute('data-active-belt-slot', 'true');
     show(itemSelectView);
 }

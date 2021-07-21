@@ -1,14 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Berkshire+Swash&display=swap');
-
 $color-primary: #205169;
 $color-secondary: #102D30;
 $color-highlight: #FFE900;
 $color-background: #030C0D;
 $color-font-dark: #000203;
 $color-font-light: #D6F1FF;
-@mixin serif-default { font-family: 'Lora', serif; }
-@mixin sans-default { font-family: 'Lato', sans-serif; }
-@mixin cursive-default { font-family: 'Berkshire Swash', 'Lora', serif; }
+@mixin serif-default {
+    font-family: 'Lora', serif;
+}
+
+@mixin sans-default {
+    font-family: 'Lato', sans-serif;
+}
+
+@mixin cursive-default {
+    font-family: 'Berkshire Swash', 'Lora', serif;
+}
+
+@mixin clickableHighlight {
+    color: $color-highlight;
+    cursor: pointer;
+}
+@mixin clickableBorderHighlight {
+    border: 3px solid $color-highlight;
+    cursor: pointer;
+}
+
+@mixin clickableOutlineHighlight {
+    outline: 2px solid $color-highlight;
+    cursor: pointer;
+}
+
+@mixin scaleTransform {
+    transform: scale(1.2);
+}
+
+@mixin transition {
+    transition: transform 0.2s ease-out;
+}
 
 * {
     box-sizing: border-box;
@@ -23,7 +52,7 @@ $color-font-light: #D6F1FF;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     cursor: pointer;
 }
@@ -36,7 +65,8 @@ $color-font-light: #D6F1FF;
     caret-color: transparent;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -46,6 +76,7 @@ body {
     display: flex;
     flex-flow: column;
 }
+
 header {
     flex: 0 1 auto;
     display: flex;
@@ -54,15 +85,15 @@ header {
         margin: 2px;
     }
     .site-title {
-        font: bold 1.5em 'Lora', serif ;  
-        line-height: 40px; 
+        font: bold 1.5em 'Lora', serif;
+        line-height: 40px;
         margin-left: 0.3em;
     }
 }
 
 main {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1800px;
     background-color: $color-background;
     align-self: center;
     flex: 1 1 auto;
@@ -71,7 +102,12 @@ main {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     @include serif-default;
 }
 
@@ -91,38 +127,41 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     font-size: 0.7em;
     gap: 0.5em;
+    grid-template-columns: repeat(auto-fit, minmax(80px, auto));
     &.champ-list {
-        grid-template-columns: repeat(auto-fit, minmax(80px, auto));
-
         &.loading {
             grid-template-columns: 20px auto;
             align-items: center;
             p {
                 margin: 0;
                 font-size: 1.2em;
-            }   
+            }
         }
     }
     &.item-list {
-        grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+        margin-top: 1em;
     }
     figure {
         margin: 0;
         text-align: center;
         line-height: initial;
-        cursor: pointer;
-        img {
-            width: 100%;
-        }
-        figcaption {
-            opacity: 50%;
-            margin: 0 0.3em;
-        }
+        @include transition();
+    }
+    figure:hover {
+        @include clickableOutlineHighlight();
+        @include scaleTransform();
+    }
+    img {
+        width: 100%;
+    }
+    figcaption {
+        opacity: 50%;
+        margin: 0 0.3em;
     }
 }
 
-.champ-list  {
-    margin-top: 1em;   
+.champ-list {
+    margin-top: 1em;
 }
 
 .build-view-header {
@@ -135,13 +174,21 @@ h1, h2, h3, h4, h5, h6 {
         margin-left: 0.3em;
         align-self: center;
     }
+    .edit-champ-button {
+        margin-left: auto;
+        align-self: center;
+        margin-right: 0.1em;
+         :hover {
+            @include clickableHighlight();
+        }
+    }
 }
 
 .item-belt {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     min-height: 50px;
-    background-color: $color-primary;  
+    background-color: $color-primary;
     .build-item {
         display: flex;
         justify-content: center;
@@ -162,10 +209,19 @@ h1, h2, h3, h4, h5, h6 {
             padding-top: 100%;
             width: 1px;
             position: relative;
-          }
+        }
     }
-    :not(.build-item:last-child) {
+     :not(.build-item:last-child) {
         border-right: 0;
+    }
+    .build-item:hover {
+        @include clickableBorderHighlight();
+        .add-item-button {
+            @include clickableHighlight();
+        }
+    }
+    .build-item[data-active-belt-slot="true"] {
+        @include clickableBorderHighlight();
     }
 }
 
@@ -189,31 +245,35 @@ h1, h2, h3, h4, h5, h6 {
 .morphing-circle {
     height: 100%;
     width: 100%;
-    background-color: $color-primary;	
+    background-color: $color-primary;
     border-radius: 50%;
-    transition: border-radius .5s ease, 
-                background-color .5s ease, 
-                transform .5s ease .5s;
+    transition: border-radius .5s ease, background-color .5s ease, transform .5s ease .5s;
     animation: morphing-circle-square 1.5s linear infinite;
 }
 
 @keyframes morphing-circle-square {
-   0% {border-radius: 50%}
-    25% { /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
+    0% {
+        border-radius: 50%
+    }
+    25% {
+        /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
         border-radius: 50%;
         background-color: $color-primary;
     }
-    50% { /* now change to white square...but don't start rotating yet! */
+    50% {
+        /* now change to white square...but don't start rotating yet! */
         border-radius: 0%;
         background-color: $color-font-light;
         transform: rotate(0deg);
     }
-    75% { /* stay a white square, but rotate 90deg */
+    75% {
+        /* stay a white square, but rotate 90deg */
         border-radius: 0%;
         background-color: $color-font-light;
-        transform: rotate(90deg);   
+        transform: rotate(90deg);
     }
-    100% { /* stay rotated at 90, but change back to a circle */
+    100% {
+        /* stay rotated at 90, but change back to a circle */
         border-radius: 50%;
         background-color: $color-primary;
         transform: rotate(90deg);
@@ -221,7 +281,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media only screen and (min-width: 900px) {
+     :root {
+        font-size: 22px;
+    }
     main.champ-select-view {
         padding: 1em 3em;
+    }
+    .grid-list {
+        display: grid;
+        font-size: 0.8em;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fit, minmax(120px, auto));
     }
 }
