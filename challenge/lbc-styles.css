@@ -55,7 +55,6 @@ header .site-title {
 main {
   width: 100%;
   max-width: 1920px;
-  background-color: #030C0D;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -145,7 +144,6 @@ h6 {
   display: flex;
   height: 50px;
   font-family: 'Berkshire Swash', 'Lora', serif;
-  background-color: #030C0D;
   font-size: 1.8em;
 }
 
@@ -175,7 +173,6 @@ h6 {
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
   min-height: 50px;
-  background-color: #205169;
 }
 
 .item-belt .build-item {
@@ -365,18 +362,14 @@ h6 {
 
 @media only screen and (min-width: 1920px) {
   .item-belt {
-    background-color: #030C0D;
+    margin-top: 2rem;
     padding: 0 8em;
-  }
-  .item-belt .build-item {
-    background-color: #205169;
   }
   .item-belt .build-item .add-item-button {
     font-size: 4em;
   }
   .build-stats-display {
-    margin: 2em 8em;
-    border: red;
+    margin: 2rem;
   }
 }
 /*# sourceMappingURL=lbc-styles.css.map */

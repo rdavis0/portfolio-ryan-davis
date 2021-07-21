@@ -72,7 +72,6 @@ body {
 }
 
 body {
-    // background-color: $color-secondary;
     background-image: linear-gradient($color-background, $color-secondary);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -98,7 +97,7 @@ header {
 main {
     width: 100%;
     max-width: 1920px;
-    background-color: $color-background;
+    // background-color: $color-background;
     align-self: center;
     flex: 1 1 auto;
     &.champ-select-view {
@@ -166,7 +165,7 @@ h6 {
     display: flex;
     height: 50px;
     @include cursive-default();
-    background-color: $color-background;
+    // background-color: $color-background;
     font-size: 1.8em;
     .champ-name {
         margin-left: 0.3em;
@@ -186,7 +185,7 @@ h6 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     min-height: 50px;
-    background-color: $color-primary;
+    // background-color: $color-primary;
     .build-item {
         display: flex;
         justify-content: center;
@@ -316,19 +315,15 @@ h6 {
 
 @media only screen and (min-width: 1920px) {
     .item-belt {
-        // gap: 2em;
-        background-color: $color-background;
+        margin-top: 2rem;
         padding: 0 8em;
         .build-item {
-            background-color: $color-primary;
-            // border: none;
             .add-item-button {
                 font-size: 4em;
             }
         }
     }
     .build-stats-display {
-        margin: 2em 8em;
-        border: red;
+        margin: 2rem;
     }
 }

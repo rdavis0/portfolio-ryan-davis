@@ -22,7 +22,7 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Blitzcrank');
+    selectChampion('Blitzcrank');
     // showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 
@@ -50,6 +50,10 @@ function renderChampList() {
         img.setAttribute('src', champImgPath + imgPath);
         img.setAttribute('alt', champ.name);
         let figcaption = document.createElement('figcaption');
+        if(champ.id == "Nunu") {
+            // Nunu & Willump is too long of a name
+            champ.name = "Nunu";
+        }
         figcaption.innerText = champ.name;
         fig.appendChild(img);
         fig.appendChild(figcaption);
