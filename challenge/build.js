@@ -51,7 +51,7 @@ export default class Build {
                 value: 0,
                 formatted: 'Movement Speed'
             }
-        }
+        };
     }  
 
     setChampion(champ) {
@@ -104,39 +104,39 @@ export default class Build {
 
         function getAffectedStat(modifier) {
             switch (modifier) {
-                case "FlatHPPoolMod": return 'hp'; break;
-                case "FlatMPPoolMod": return 'mp'; break;
-                case "PercentHPPoolMod": return 'hp'; break;
-                case "PercentMPPoolMod": return 'mp'; break;
-                case "FlatHPRegenMod": return 'hpregen'; break;
-                case "PercentHPRegenMod": return 'hpregen'; break;
-                case "FlatMPRegenMod": return 'mpregen'; break;
-                case "PercentMPRegenMod": return 'mpregen'; break;
-                case "FlatArmorMod": return 'armor'; break;
-                case "PercentArmorMod": return 'armor'; break;
-                case "FlatPhysicalDamageMod": return 'attackdamage'; break;
-                case "PercentPhysicalDamageMod": return 'attackdamage'; break;
-                case "FlatMagicDamageMod": return 'ap'; break;
-                case "PercentMagicDamageMod": return 'ap'; break;
-                case "FlatMovementSpeedMod": return 'movespeed'; break;
-                case "PercentMovementSpeedMod": return 'movespeed'; break;
-                case "FlatAttackSpeedMod": return 'attackspeed'; break;
-                case "PercentAttackSpeedMod": return 'attackspeed'; break;
-                // case "PercentDodgeMod": return ''; break;
-                case "FlatCritChanceMod": return 'crit'; break;
-                case "PercentCritChanceMod": return 'crit'; break;
-                // case "FlatCritDamageMod": return ''; break;
-                // case "PercentCritDamageMod": return ''; break;
-                // case "FlatBlockMod": return ''; break;
-                // case "PercentBlockMod": return ''; break;
-                case "FlatSpellBlockMod": return 'magicresist'; break;
-                case "PercentSpellBlockMod": return 'magicresist'; break;
-                // case "FlatEXPBonus": return ''; break;
-                // case "PercentEXPBonus": return ''; break;
-                // case "FlatEnergyRegenMod": return ''; break;
-                // case "FlatEnergyPoolMod": return ''; break;
-                // case "PercentLifeStealMod": return ''; break;
-                // case "PercentSpellVampMod": return ''; break;
+                case "FlatHPPoolMod": return 'hp'; 
+                case "FlatMPPoolMod": return 'mp'; 
+                case "PercentHPPoolMod": return 'hp'; 
+                case "PercentMPPoolMod": return 'mp'; 
+                case "FlatHPRegenMod": return 'hpregen'; 
+                case "PercentHPRegenMod": return 'hpregen'; 
+                case "FlatMPRegenMod": return 'mpregen'; 
+                case "PercentMPRegenMod": return 'mpregen'; 
+                case "FlatArmorMod": return 'armor'; 
+                case "PercentArmorMod": return 'armor'; 
+                case "FlatPhysicalDamageMod": return 'attackdamage'; 
+                case "PercentPhysicalDamageMod": return 'attackdamage'; 
+                case "FlatMagicDamageMod": return 'ap'; 
+                case "PercentMagicDamageMod": return 'ap'; 
+                case "FlatMovementSpeedMod": return 'movespeed'; 
+                case "PercentMovementSpeedMod": return 'movespeed'; 
+                case "FlatAttackSpeedMod": return 'attackspeed'; 
+                case "PercentAttackSpeedMod": return 'attackspeed'; 
+                // case "PercentDodgeMod": return ''; 
+                case "FlatCritChanceMod": return 'crit'; 
+                case "PercentCritChanceMod": return 'crit'; 
+                // case "FlatCritDamageMod": return ''; 
+                // case "PercentCritDamageMod": return ''; 
+                // case "FlatBlockMod": return ''; 
+                // case "PercentBlockMod": return ''; 
+                case "FlatSpellBlockMod": return 'magicresist'; 
+                case "PercentSpellBlockMod": return 'magicresist'; 
+                // case "FlatEXPBonus": return ''; 
+                // case "PercentEXPBonus": return ''; 
+                // case "FlatEnergyRegenMod": return ''; 
+                // case "FlatEnergyPoolMod": return ''; 
+                // case "PercentLifeStealMod": return ''; 
+                // case "PercentSpellVampMod": return ''; 
             }
         }
     }
