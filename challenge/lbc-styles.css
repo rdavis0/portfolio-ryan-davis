@@ -139,27 +139,30 @@ h6 {
 }
 
 .build-view-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 50px;
   font-family: 'Berkshire Swash', 'Lora', serif;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto 1fr;
+      grid-template-columns: auto auto 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
   font-size: 1.8em;
+}
+
+.build-view-header img {
+  height: 50px;
 }
 
 .build-view-header .champ-name {
   margin-left: 0.3em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 
 .build-view-header .edit-champ-button {
-  margin-left: auto;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-right: 0.1em;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 0.4rem;
 }
 
 .build-view-header .edit-champ-button :hover {
@@ -336,14 +339,29 @@ h6 {
     margin: 1em;
   }
   .build-view-header {
+    -ms-grid-columns: auto 1fr;
+        grid-template-columns: auto 1fr;
     height: 125px;
   }
-  .build-view-header .champ-name {
-    font-size: larger;
+  .build-view-header img {
+    height: 100%;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1/1;
   }
   .build-view-header .edit-champ-button {
-    margin-right: 0.8rem;
-    font-size: 2em;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1/1;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .build-view-header .edit-champ-button :hover {
+    color: #FFE900;
+    cursor: pointer;
+  }
+  .build-view-header .champ-name {
+    margin-left: 0.3em;
   }
   .build-item .add-item-button {
     font-size: 3em;
@@ -351,7 +369,6 @@ h6 {
   .build-stats-display {
     margin: 1em;
     font-size: larger;
-    border: red;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;

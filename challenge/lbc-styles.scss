@@ -40,10 +40,6 @@ $color-font-light: #D6F1FF;
     transition: transform 0.2s ease-out;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 @mixin overlay {
     // position: fixed;
     display: none;
@@ -57,6 +53,12 @@ $color-font-light: #D6F1FF;
     z-index: 2;
     cursor: pointer;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+
 
 :root {
     @include sans-default;
@@ -162,20 +164,22 @@ h6 {
 }
 
 .build-view-header {
-    display: flex;
-    height: 50px;
     @include cursive-default();
-    // background-color: $color-background;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    height: 50px;
     font-size: 1.8em;
+    img {
+        height: 50px;
+    }
     .champ-name {
         margin-left: 0.3em;
-        align-self: center;
     }
     .edit-champ-button {
-        margin-left: auto;
-        align-self: center;
-        margin-right: 0.1em;
-         :hover {
+        justify-self: end;
+        margin-right: 0.4rem;
+        :hover {
             @include clickableHighlight();
         }
     }
@@ -279,9 +283,11 @@ h6 {
      :root {
         font-size: 22px;
     }
+
     main.champ-select-view {
         padding: 1em 3em;
     }
+
     .grid-list {
         font-size: 0.8em;
         gap: 0.5em;
@@ -290,27 +296,40 @@ h6 {
             margin: 1em;
         }
     }
+
     .build-view-header {
+        grid-template-columns: auto 1fr;
         height: 125px;
-        .champ-name {
-            font-size: larger;
+        img {
+            height: 100%;
+            grid-area: 1/1;
         }
         .edit-champ-button {
-            margin-right: 0.8rem;
-            font-size: 2em;
+            grid-area: 1/1;
+            justify-self: center;
+            :hover {
+                @include clickableHighlight();
+            }
         }
+        .champ-name {
+            margin-left: 0.3em;
+        }
+       
     }
+
     .build-item .add-item-button {
         font-size: 3em;
     }
+
     .build-stats-display {
         margin: 1em;
         font-size: larger;
-        border: red;
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: center;
     }
+
+
 }
 
 @media only screen and (min-width: 1920px) {
