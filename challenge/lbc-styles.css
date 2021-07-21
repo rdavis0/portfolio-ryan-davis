@@ -18,7 +18,10 @@ body {
 }
 
 body {
-  background-color: #102D30;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#030C0D), to(#102D30));
+  background-image: linear-gradient(#030C0D, #102D30);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,7 +54,7 @@ header .site-title {
 
 main {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1920px;
   background-color: #030C0D;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -88,6 +91,7 @@ h6 {
 }
 
 .grid-list {
+  margin-top: 1em;
   display: -ms-grid;
   display: grid;
   font-size: 0.7em;
@@ -107,10 +111,6 @@ h6 {
 .grid-list.champ-list.loading p {
   margin: 0;
   font-size: 1.2em;
-}
-
-.grid-list.item-list {
-  margin-top: 1em;
 }
 
 .grid-list figure {
@@ -137,10 +137,6 @@ h6 {
 .grid-list figcaption {
   opacity: 50%;
   margin: 0 0.3em;
-}
-
-.champ-list {
-  margin-top: 1em;
 }
 
 .build-view-header {
@@ -206,12 +202,12 @@ h6 {
   width: 100%;
 }
 
-.item-belt .build-item:before {
+.item-belt .build-item:after {
   content: "";
   height: 0;
   display: inline-block;
   padding-top: 100%;
-  width: 1px;
+  width: 0;
   position: relative;
 }
 
@@ -219,23 +215,20 @@ h6 {
   border-right: 0;
 }
 
-.item-belt .build-item:hover {
-  border: 3px solid #FFE900;
-  cursor: pointer;
-}
-
-.item-belt .build-item:hover .add-item-button {
-  color: #FFE900;
-  cursor: pointer;
-}
-
+.item-belt .build-item:hover,
 .item-belt .build-item[data-active-belt-slot="true"] {
   border: 3px solid #FFE900;
   cursor: pointer;
 }
 
+.item-belt .build-item:hover .add-item-button,
+.item-belt .build-item[data-active-belt-slot="true"] .add-item-button {
+  color: #FFE900;
+  cursor: pointer;
+}
+
 .build-stats-display {
-  padding: 0.2em 0.5em;
+  text-align: center;
 }
 
 .build-stats-display .build-stat {
@@ -337,12 +330,53 @@ h6 {
     padding: 1em 3em;
   }
   .grid-list {
-    display: -ms-grid;
-    display: grid;
     font-size: 0.8em;
-    gap: 1em;
+    gap: 0.5em;
     -ms-grid-columns: (minmax(120px, auto))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+  }
+  .grid-list.item-list {
+    margin: 1em;
+  }
+  .build-view-header {
+    height: 125px;
+  }
+  .build-view-header .champ-name {
+    font-size: larger;
+  }
+  .build-view-header .edit-champ-button {
+    margin-right: 0.8rem;
+    font-size: 2em;
+  }
+  .build-item .add-item-button {
+    font-size: 3em;
+  }
+  .build-stats-display {
+    margin: 1em;
+    font-size: larger;
+    border: red;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .item-belt {
+    background-color: #030C0D;
+    padding: 0 8em;
+  }
+  .item-belt .build-item {
+    background-color: #205169;
+  }
+  .item-belt .build-item .add-item-button {
+    font-size: 4em;
+  }
+  .build-stats-display {
+    margin: 2em 8em;
+    border: red;
   }
 }
 /*# sourceMappingURL=lbc-styles.css.map */
