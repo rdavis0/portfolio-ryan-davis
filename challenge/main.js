@@ -22,7 +22,7 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    selectChampion('Nunu');
+    // selectChampion('Nunu');
     // showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 

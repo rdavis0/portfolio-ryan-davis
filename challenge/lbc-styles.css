@@ -219,6 +219,8 @@ h6 {
 .item-belt .build-item[data-active-belt-slot="true"] {
   border: 3px solid #FFE900;
   cursor: pointer;
+  -webkit-transition: border-color 0.3s;
+  transition: border-color 0.3s;
 }
 
 .item-belt .build-item:hover .add-item-button,
@@ -343,11 +345,30 @@ h6 {
         grid-template-columns: auto 1fr;
     height: 125px;
   }
-  .build-view-header img {
-    height: 100%;
+  .build-view-header .build-view-champ-image-wrapper {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: 1/1;
+    position: relative;
+  }
+  .build-view-header .build-view-champ-image-wrapper:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .build-view-header .build-view-champ-image-wrapper:hover:after {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .build-view-header .build-view-champ-image-wrapper img {
+    height: 100%;
   }
   .build-view-header .edit-champ-button {
     -ms-grid-row: 1;
@@ -355,10 +376,7 @@ h6 {
     grid-area: 1/1;
     -ms-grid-column-align: center;
         justify-self: center;
-  }
-  .build-view-header .edit-champ-button :hover {
-    color: #FFE900;
-    cursor: pointer;
+    z-index: 2;
   }
   .build-view-header .champ-name {
     margin-left: 0.3em;
