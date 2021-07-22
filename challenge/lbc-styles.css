@@ -54,7 +54,7 @@ header .site-title {
 
 main {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1600px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -170,12 +170,17 @@ h6 {
   cursor: pointer;
 }
 
+.build-view-header .edit-champ-button.desktop {
+  display: none;
+}
+
 .item-belt {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
   min-height: 50px;
+  background-color: #205169;
 }
 
 .item-belt .build-item {
@@ -265,26 +270,22 @@ h6 {
     border-radius: 50%;
   }
   25% {
-    /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
     border-radius: 50%;
     background-color: #205169;
   }
   50% {
-    /* now change to white square...but don't start rotating yet! */
     border-radius: 0%;
     background-color: #D6F1FF;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   75% {
-    /* stay a white square, but rotate 90deg */
     border-radius: 0%;
     background-color: #D6F1FF;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
   }
   100% {
-    /* stay rotated at 90, but change back to a circle */
     border-radius: 50%;
     background-color: #205169;
     -webkit-transform: rotate(90deg);
@@ -297,26 +298,22 @@ h6 {
     border-radius: 50%;
   }
   25% {
-    /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
     border-radius: 50%;
     background-color: #205169;
   }
   50% {
-    /* now change to white square...but don't start rotating yet! */
     border-radius: 0%;
     background-color: #D6F1FF;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   75% {
-    /* stay a white square, but rotate 90deg */
     border-radius: 0%;
     background-color: #D6F1FF;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
   }
   100% {
-    /* stay rotated at 90, but change back to a circle */
     border-radius: 50%;
     background-color: #205169;
     -webkit-transform: rotate(90deg);
@@ -346,9 +343,6 @@ h6 {
     height: 125px;
   }
   .build-view-header .build-view-champ-image-wrapper {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: 1/1;
     position: relative;
   }
   .build-view-header .build-view-champ-image-wrapper:after {
@@ -367,16 +361,29 @@ h6 {
     opacity: 1;
     cursor: pointer;
   }
+  .build-view-header .build-view-champ-image-wrapper:hover .edit-champ-button {
+    color: #FFE900;
+    cursor: pointer;
+    opacity: 1;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
   .build-view-header .build-view-champ-image-wrapper img {
     height: 100%;
   }
-  .build-view-header .edit-champ-button {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: 1/1;
-    -ms-grid-column-align: center;
-        justify-self: center;
+  .build-view-header .edit-champ-button.desktop {
+    display: initial;
+    position: absolute;
+    font-size: 3rem;
+    left: 0;
+    top: 0;
+    padding: 25px 16px 30px 30px;
+    margin: 0;
     z-index: 2;
+    opacity: 0;
+  }
+  .build-view-header .edit-champ-button.mobile {
+    display: none;
   }
   .build-view-header .champ-name {
     margin-left: 0.3em;
@@ -395,12 +402,8 @@ h6 {
   }
 }
 
-@media only screen and (min-width: 1920px) {
-  .item-belt {
-    margin-top: 2rem;
-    padding: 0 8em;
-  }
-  .item-belt .build-item .add-item-button {
+@media only screen and (min-width: 1600px) {
+  .build-item .add-item-button {
     font-size: 4em;
   }
   .build-stats-display {

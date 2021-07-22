@@ -86,7 +86,9 @@ function renderBuildView() {
 
     document.querySelector('main').classList.add('build-view');
     document.querySelector('main').classList.remove('champ-select-view');
-    getElement('edit-champ-button').addEventListener('click', showChampSelect);
+    document.querySelectorAll('.edit-champ-button').forEach((el) => {
+        el.addEventListener('click', showChampSelect);
+    });
     hide(champSelectView);
     show(buildView);
 }
