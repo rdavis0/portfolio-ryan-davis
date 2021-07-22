@@ -40,10 +40,6 @@ $color-font-light: #D6F1FF;
     transition: transform 0.2s ease-out;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 @mixin overlay {
     // position: fixed;
     display: none;
@@ -56,6 +52,10 @@ $color-font-light: #D6F1FF;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 :root {
@@ -96,8 +96,7 @@ header {
 
 main {
     width: 100%;
-    max-width: 1920px;
-    // background-color: $color-background;
+    max-width: 1600px;
     align-self: center;
     flex: 1 1 auto;
     &.champ-select-view {
@@ -162,21 +161,26 @@ h6 {
 }
 
 .build-view-header {
-    display: flex;
-    height: 50px;
     @include cursive-default();
-    // background-color: $color-background;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    height: 50px;
     font-size: 1.8em;
+    img {
+        height: 50px;
+    }
     .champ-name {
         margin-left: 0.3em;
-        align-self: center;
     }
     .edit-champ-button {
-        margin-left: auto;
-        align-self: center;
-        margin-right: 0.1em;
-         :hover {
+        justify-self: end;
+        margin-right: 0.4rem;
+        :hover {
             @include clickableHighlight();
+        }
+        &.desktop {
+            display: none;
         }
     }
 }
@@ -185,7 +189,7 @@ h6 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     min-height: 50px;
-    // background-color: $color-primary;
+    background-color: $color-primary;
     .build-item {
         display: flex;
         justify-content: center;
@@ -217,6 +221,7 @@ h6 {
         .add-item-button {
             @include clickableHighlight();
         }
+        transition: border-color 0.3s;
     }
 }
 
@@ -251,24 +256,20 @@ h6 {
         border-radius: 50%
     }
     25% {
-        /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
         border-radius: 50%;
         background-color: $color-primary;
     }
     50% {
-        /* now change to white square...but don't start rotating yet! */
         border-radius: 0%;
         background-color: $color-font-light;
         transform: rotate(0deg);
     }
     75% {
-        /* stay a white square, but rotate 90deg */
         border-radius: 0%;
         background-color: $color-font-light;
         transform: rotate(90deg);
     }
     100% {
-        /* stay rotated at 90, but change back to a circle */
         border-radius: 50%;
         background-color: $color-primary;
         transform: rotate(90deg);
@@ -291,13 +292,54 @@ h6 {
         }
     }
     .build-view-header {
+        grid-template-columns: auto 1fr;
         height: 125px;
-        .champ-name {
-            font-size: larger;
+        .build-view-champ-image-wrapper {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.7);
+                opacity: 0;
+                transition: all 0.3s;
+            }
+            &:hover {
+                &:after {
+                    opacity: 1;
+                    cursor: pointer;
+                }
+                .edit-champ-button {
+                    @include clickableHighlight();
+                    opacity: 1;
+                    transition: all 0.3s;
+                }
+            }
+            img {
+                height: 100%;
+            }
         }
         .edit-champ-button {
-            margin-right: 0.8rem;
-            font-size: 2em;
+            &.desktop {
+                display: initial;
+                position: absolute;
+                font-size: 3rem;
+                left: 0;
+                top: 0;
+                padding: 25px 16px 30px 30px;
+                margin: 0;
+                z-index: 2;
+                opacity: 0;
+            }
+            &.mobile {
+                display: none;
+            }
+        }
+        .champ-name {
+            margin-left: 0.3em;
         }
     }
     .build-item .add-item-button {
@@ -312,16 +354,11 @@ h6 {
     }
 }
 
-@media only screen and (min-width: 1920px) {
-    .item-belt {
-        margin-top: 2rem;
-        padding: 0 8em;
-        .build-item {
-            .add-item-button {
-                font-size: 4em;
-            }
-        }
+@media only screen and (min-width: 1600px) {
+    .build-item .add-item-button {
+        font-size: 4em;
     }
+
     .build-stats-display {
         margin: 2rem;
     }

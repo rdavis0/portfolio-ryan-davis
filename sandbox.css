@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Berkshire+Swash&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  color: #d6f1ff;
+  font-size: 18px;
+  line-height: 1.4em;
+  caret-color: transparent;
+}
+
+main {
+  width: 100%;
+  max-width: 1920px;
+  background-color: #030c0d;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+main.champ-select-view {
+  padding: 1em 0.5em;
+}
+
+.build-view-header {
+  font-family: "Berkshire Swash", "Lora", serif;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr 1fr;
+      grid-template-columns: auto 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  font-size: 1.8em;
+}
+
+.build-view-header img {
+  height: 50px;
+}
+
+.build-view-header .champ-name {
+  margin-left: 0.3em;
+}
+
+.build-view-header .edit-champ-button {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 0.4rem;
+}
+
+.build-view-header .edit-champ-button :hover {
+  color: #ffe900;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .build-view-header {
+    -ms-grid-columns: auto 1fr;
+        grid-template-columns: auto 1fr;
+    height: 125px;
+  }
+  .build-view-header img {
+    height: 100%;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1/1;
+  }
+  .build-view-header .edit-champ-button {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1/1;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .build-view-header .edit-champ-button :hover {
+    color: #ffe900;
+    cursor: pointer;
+  }
+  .build-view-header .champ-name {
+    margin-left: 0.3em;
+  }
+}
+
+.other {
+  background-color: goldenrod;
+  height: 300px;
+  padding: 20px;
+  color: black;
+}
+/*# sourceMappingURL=sandbox.css.map */

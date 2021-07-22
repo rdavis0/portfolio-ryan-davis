@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Berkshire+Swash&display=swap");
+
+@mixin serif-default {
+    font-family: "Lora", serif;
+}
+
+@mixin sans-default {
+    font-family: "Lato", sans-serif;
+}
+
+@mixin cursive-default {
+    font-family: "Berkshire Swash", "Lora", serif;
+}
+
+$color-primary: #205169;
+$color-secondary: #102d30;
+$color-highlight: #ffe900;
+$color-background: #030c0d;
+$color-font-dark: #000203;
+$color-font-light: #d6f1ff;
+
+@mixin clickableHighlight {
+    color: $color-highlight;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: $color-font-light;
+    font-size: 18px;
+    line-height: 1.4em;
+    caret-color: transparent;
+}
+
+main {
+    width: 100%;
+    max-width: 1920px;
+    background-color: $color-background;
+    align-self: center;
+    flex: 1 1 auto;
+
+    &.champ-select-view {
+        padding: 1em 0.5em;
+    }
+}
+
+.build-view-header {
+    @include cursive-default();
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    align-items: center;
+    height: 50px;
+    font-size: 1.8em;
+    // border: 1px solid white;
+    img {
+        height: 50px;
+        // border: 1px solid gold;
+        // grid-row-start: 1;
+    }
+    .champ-name {
+        margin-left: 0.3em;
+    }
+    .edit-champ-button {
+        // grid-row-start: 1;
+        // border: 1px solid lightblue;
+        justify-self: end;
+        margin-right: 0.4rem;
+        :hover {
+            @include clickableHighlight();
+        }
+    }
+}
+
+@media screen and (min-width: 900px){
+    .build-view-header {
+        grid-template-columns: auto 1fr;
+        height: 125px;
+        // border: 1px solid white;
+        img {
+            height: 100%;
+            // border: 1px solid gold;
+            grid-area: 1/1;
+        }
+        .edit-champ-button {
+            grid-area: 1/1;
+            // border: 1px solid lightblue;
+            justify-self: center;
+            :hover {
+                @include clickableHighlight();
+            }
+        }
+        .champ-name {
+            margin-left: 0.3em;
+        }
+       
+    }
+    
+}
+
+.other {
+    background-color: goldenrod;
+    height: 300px;
+    padding: 20px;
+    color: black;
+}

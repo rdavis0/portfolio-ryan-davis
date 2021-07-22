@@ -22,7 +22,7 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Blitzcrank');
+    // selectChampion('Nunu');
     // showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 
@@ -50,11 +50,7 @@ function renderChampList() {
         img.setAttribute('src', champImgPath + imgPath);
         img.setAttribute('alt', champ.name);
         let figcaption = document.createElement('figcaption');
-        if(champ.id == "Nunu") {
-            // Nunu & Willump is too long of a name
-            champ.name = "Nunu";
-        }
-        figcaption.innerText = champ.name;
+        figcaption.innerText = champ.id == "Nunu" ? "Nunu" : champ.name;   // Nunu & Willump is too long of a name
         fig.appendChild(img);
         fig.appendChild(figcaption);
         fig.setAttribute('id', champ.id);
@@ -90,7 +86,9 @@ function renderBuildView() {
 
     document.querySelector('main').classList.add('build-view');
     document.querySelector('main').classList.remove('champ-select-view');
-    getElement('edit-champ-button').addEventListener('click', showChampSelect);
+    document.querySelectorAll('.edit-champ-button').forEach((el) => {
+        el.addEventListener('click', showChampSelect);
+    });
     hide(champSelectView);
     show(buildView);
 }
