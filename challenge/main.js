@@ -44,7 +44,7 @@ function renderChampList() {
     champsDiv.innerHTML = '';
     Object.keys(champs).forEach(key => {
         let champ = champs[key];
-        let imgPath = champ.image.full;
+        let imgPath =  champ.image.full.replace('png', 'webp');
         let fig = document.createElement('figure');
         let img = document.createElement('img');
         img.setAttribute('src', champImgPath + imgPath);
@@ -117,7 +117,7 @@ function showItemList(buildItemId) {
 function constructItemList() {
     Object.keys(items).forEach(key => {
         let item = items[key];
-        let imgPath = item.image.full;
+        let imgPath = item.image.full.replace('png', 'webp');;
         let fig = document.createElement('figure');
         let img = document.createElement('img');
         img.setAttribute('src', itemImgPath + imgPath);
@@ -147,7 +147,7 @@ function addItemToBelt(itemId, buildItemId) {
     let buildItemDiv = getElement(buildItemId);
     buildItemDiv.innerHTML = '';
     let img = document.createElement('img');
-    let imgPath = ld.getItem(itemId).image.full;
+    let imgPath = ld.getItem(itemId).image.full.replace('png', 'webp');;
     img.setAttribute('src', itemImgPath + imgPath);
     img.setAttribute('alt', ld.getItem(itemId).name);
     buildItemDiv.appendChild(img);

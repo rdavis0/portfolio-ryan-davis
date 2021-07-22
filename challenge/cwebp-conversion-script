@@ -1,0 +1,29 @@
+# on Windows Explorer, shift + right-click a directory and copy its path
+# paste the path in $dir
+$dir = "path/to/directory"
+
+# get all files in the directory
+$images = Get-ChildItem $dir
+
+# loop through every images
+foreach ($img in $images) {
+  # output file will be written in the same directory 
+  # but with .webp extension instead of old extension
+  $outputName = $img.DirectoryName + "\" + $img.BaseName + ".webp"
+
+  # copy-paste the path to cwebp program 
+  # and set its input and output parameters
+  # more options https://developers.google.com/speed/webp/docs/cwebp
+  C:\webp-converter\libwebp-0.6.1-windows-x64\bin\cwebp.exe $img.FullName -o $outputName
+}
+
+
+
+$dir = "D:\Code\WDD-330\challenge\data-dragon\img\item"
+
+$images = Get-ChildItem $dir
+
+foreach ($img in $images) {
+  $outputName = $img.DirectoryName + "\" + $img.BaseName + ".webp"
+  .\cwebp.exe $img.FullName -o $outputName
+}
