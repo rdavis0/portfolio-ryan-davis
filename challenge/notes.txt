@@ -1,18 +1,30 @@
-Wed: ✅Add Build class, ✅Select champ, ✅build view page framework, ✅display champ stats @ lvl 1.
-Thurs: ✅Items list, ✅add item
-Fri: ✅Calc stats with items
-Sat:Item display, ✅perfect mobile
 
-Mon: ✅Switch champ, ✅desktop styles
 Tues: Write report, Edit champ level, enforce item limits?
-Wed: ✅app cleanup, ✅portfolio cleanup, alphabetize champ/item lists
+
 
 Todo: 
-Change favicon to champ image
+complex stat calculation formulas (see wiki)
+item info view
+edit champ level
+add caps
+champ search
+item search
+alphabetize champ/item lists
+Enforce item limits
 Fix overlay for item select view
 Delete item
 Account for energy champs and other forms of ability juice
+notes for specific champs, e.g. Jhin's notes from Crixaliz:
+    "- Steroid: Q (4th bounce)
+    - Steroid: R (Last shot)
+    - Reload time is in DPS
+    - Last hit is not in DPS
+    - R damage is per shot"				
 Override back button?
+Reset scroll after picking item/champion
+enforce item limits
+Smaller item belt, nested in header for desktop
+copyright footer
 Missing 
     armor pen
     lethality
@@ -34,3 +46,5 @@ Missing
     https://leagueoflegends.fandom.com/wiki/Champion_statistic
 
 Stat icons: https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/
+
+https://docs.google.com/spreadsheets/d/1EeI4JcF-prRImPNNWPjgyKsAL9U_Di9BQKdwmg-lpFM

@@ -95,11 +95,12 @@ function renderBuildView() {
 
 function updateBuildStatsDisplay() {
     for (let stat in build.stats) {
+        let roundedValue = Math.round(build.stats[stat].value * 1000) / 1000
         if(stat === 'crit') {
-            let critPercent = Intl.NumberFormat('en-US', {style: 'percent'}).format(build.stats[stat].value);
+            let critPercent = Intl.NumberFormat('en-US', {style: 'percent'}).format(roundedValue);
             getElement(stat).innerText = `${build.stats[stat].formatted}: ${critPercent}`;
         }
-        else getElement(stat).innerText = `${build.stats[stat].formatted}: ${build.stats[stat].value}`;
+        else getElement(stat).innerText = `${build.stats[stat].formatted}: ${roundedValue}`;
     }
 }
 
