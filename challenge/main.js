@@ -10,11 +10,11 @@ let champs = null;
 let items = null;
 const champsDiv = document.getElementById('champList');
 const champSelectView = document.getElementById('champ-select-view');
-const champImgPath = './data-dragon/img/champion/';
+const champImgDir = './data-dragon/img/compressed/champion/';
 const buildView = document.getElementById('build-view-container');
 const itemSelectView = getElement('item-select-view');
 const itemListDiv = getElement('item-list');
-const itemImgPath = './data-dragon/img/item/';
+const itemImgDir = './data-dragon/img/compressed/item/';
 
 init().then(() => {
     champs = ld.getChampions();
@@ -22,8 +22,8 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Nunu');
-    // showItemList('buildItem3');
+    selectChampion('Nunu');
+    showItemList('buildItem3');
     // selectItem('1001', 'buildItem3');
 
     document.querySelectorAll('.build-item').forEach((item) => {
@@ -44,11 +44,11 @@ function renderChampList() {
     champsDiv.innerHTML = '';
     Object.keys(champs).forEach(key => {
         let champ = champs[key];
-        let imgPath =  champ.image.full.replace('png', 'webp');
+        let imgPath =  champImgDir + champ.image.full.replace('png', 'webp');
         let fig = document.createElement('figure');
         let img = document.createElement('img');
-        img.setAttribute('src', champImgPath + imgPath);
-        img.setAttribute('alt', champ.name);
+        img.setAttribute('src', imgPath);
+        img.setAttribute('alt', "");
         let figcaption = document.createElement('figcaption');
         figcaption.innerText = champ.id == "Nunu" ? "Nunu" : champ.name;   // Nunu & Willump is too long of a name
         fig.appendChild(img);
@@ -72,8 +72,8 @@ function selectChampion(id) {
 }
 
 function renderBuildView() {
-    getElement('build-view-champ-img').src = champImgPath + build.champion.image.full;
-    getElement('build-view-champ-img').alt = build.champion.name;
+    getElement('build-view-champ-img').src = champImgDir + build.champion.image.full.replace('png', 'webp');
+    getElement('build-view-champ-img').alt = "";
     getElement('champ-name').innerText = build.champion.name;
     let buildStatsDisplay = getElement('build-stats-display');
     for (let stat in build.stats) {
@@ -118,11 +118,11 @@ function showItemList(buildItemId) {
 function constructItemList() {
     Object.keys(items).forEach(key => {
         let item = items[key];
-        let imgPath = item.image.full.replace('png', 'webp');;
+        let imgPath = itemImgDir + item.image.full.replace('png', 'webp');;
         let fig = document.createElement('figure');
         let img = document.createElement('img');
-        img.setAttribute('src', itemImgPath + imgPath);
-        img.setAttribute('alt', item.name);
+        img.setAttribute('src', imgPath);
+        img.setAttribute('alt', "");
         let figcaption = document.createElement('figcaption');
         figcaption.innerText = item.name;
         fig.appendChild(img);
@@ -148,8 +148,8 @@ function addItemToBelt(itemId, buildItemId) {
     let buildItemDiv = getElement(buildItemId);
     buildItemDiv.innerHTML = '';
     let img = document.createElement('img');
-    let imgPath = ld.getItem(itemId).image.full.replace('png', 'webp');;
-    img.setAttribute('src', itemImgPath + imgPath);
+    let imgPath = itemImgDir + ld.getItem(itemId).image.full.replace('png', 'webp');;
+    img.setAttribute('src', imgPath);
     img.setAttribute('alt', ld.getItem(itemId).name);
     buildItemDiv.appendChild(img);
     buildItemDiv.removeAttribute('data-active-belt-slot');

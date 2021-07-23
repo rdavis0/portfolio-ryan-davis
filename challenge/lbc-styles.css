@@ -403,6 +403,14 @@ h6 {
 }
 
 @media only screen and (min-width: 1600px) {
+  .grid-list.champ-list {
+    -ms-grid-columns: (125px)[auto-fit];
+        grid-template-columns: repeat(auto-fit, 125px);
+  }
+  .grid-list.item-list {
+    -ms-grid-columns: (125px)[auto-fit];
+        grid-template-columns: repeat(auto-fit, 125px);
+  }
   .build-item .add-item-button {
     font-size: 4em;
   }

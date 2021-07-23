@@ -18,12 +18,13 @@ foreach ($img in $images) {
 }
 
 
+// Compress all files in \img @ 85 quality
+$dir = ".\challenge\data-dragon\img\"
 
-$dir = "D:\Code\WDD-330\challenge\data-dragon\img\item"
-
-$images = Get-ChildItem $dir
+$images = Get-ChildItem $dir -Exclude compressed | Get-ChildItem -Recurse
 
 foreach ($img in $images) {
-  $outputName = $img.DirectoryName + "\" + $img.BaseName + ".webp"
-  .\cwebp.exe $img.FullName -o $outputName
+  $outputName = $img.Directory.Parent.FullName + "\compressed\" + $img.Directory.Name + "\" + $img.BaseName + ".webp"
+  C:\Users\ryand\Downloads\libwebp-1.2.0-windows-x64\libwebp-1.2.0-windows-x64\bin\cwebp.exe $img.FullName -o $outputName -q 85 -m 6
 }
+
