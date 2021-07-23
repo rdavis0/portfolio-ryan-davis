@@ -113,11 +113,11 @@ h1, h2, h3, h4, h5, h6 {
         background-color: $color-background;
     }   
     .font-dark {
-        background-color: $color-font-dark;
+        background-color: white;
+        color: $color-font-dark
     }
     .font-light {
-        background-color: $color-font-light;
-        color: $color-font-dark;
+        background-color: black;
     }
 }
 
