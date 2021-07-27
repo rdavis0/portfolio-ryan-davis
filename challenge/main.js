@@ -22,9 +22,12 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    selectChampion('Jinx');
-    showItemList('buildItem0');
-    selectItem('3085', 'buildItem0');
+    // selectChampion('Jinx');
+    // showItemList('buildItem0');
+    // selectItem('3085', 'buildItem0');
+    // selectItem('6676', 'buildItem1');
+    // selectItem('3033', 'buildItem2');
+
 
     document.querySelectorAll('.build-item').forEach((item) => {
         item.addEventListener('click', () => showItemList(item.id));
@@ -95,11 +98,11 @@ function renderBuildView() {
 
 function updateBuildStatsDisplay() {
     for (let stat in build.stats) {
-        let value = build.stats[stat].value;
+        let roundedValue = Math.round(build.stats[stat].value * 1000) / 1000;
         if(stat === 'crit' || stat === 'critdamage') {
-            value = Intl.NumberFormat('en-US', {style: 'percent'}).format(build.stats[stat].value);
+            roundedValue = Intl.NumberFormat('en-US', {style: 'percent'}).format(roundedValue);
         }
-        getElement(stat).innerText = `${build.stats[stat].formatted}: ${value}`;
+        getElement(stat).innerText = `${build.stats[stat].formatted}: ${roundedValue}`;
     }
 }
 
