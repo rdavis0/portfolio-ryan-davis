@@ -1,6 +1,7 @@
 export default class Build {
     constructor() {
         this.champion = null;
+        this.level = 1;
         this.items = [];
         this.stats = {
             hp: {
@@ -59,18 +60,23 @@ export default class Build {
         this.setStatsToBase();     
     }
 
+    setLevel(level) {
+        this.level = level;
+    }
+
     setStatsToBase() {
-        this.stats.hp.value = this.champion.stats.hp;
-        this.stats.mp.value = this.champion.stats.mp;
-        this.stats.movespeed.value = this.champion.stats.movespeed;
-        this.stats.armor.value = this.champion.stats.armor;
-        this.stats.magicresist.value = this.champion.stats.spellblock;
-        this.stats.attackrange.value = this.champion.stats.attackrange;
-        this.stats.hpregen.value = this.champion.stats.hpregen;
-        this.stats.mpregen.value = this.champion.stats.mpregen;
-        this.stats.crit.value = this.champion.stats.crit;
-        this.stats.attackdamage.value = this.champion.stats.attackdamage;
-        this.stats.attackspeed.value = this.champion.stats.attackspeed;
+        let champStats = this.champion.stats
+        this.stats.hp.value = champStats.hp;
+        this.stats.mp.value = champStats.mp;
+        this.stats.movespeed.value = champStats.movespeed;
+        this.stats.armor.value = champStats.armor;
+        this.stats.magicresist.value = champStats.spellblock;
+        this.stats.attackrange.value = champStats.attackrange;
+        this.stats.hpregen.value = champStats.hpregen;
+        this.stats.mpregen.value = champStats.mpregen;
+        this.stats.crit.value = champStats.crit;
+        this.stats.attackdamage.value = champStats.attackdamage;
+        this.stats.attackspeed.value = champStats.attackspeed;
         this.stats.ap.value = 0;
     }
 
