@@ -26,11 +26,7 @@ enforce item limits
 Smaller item belt, nested in header for desktop
 copyright footer
 Missing 
-    armor pen
-    lethality
-    crit damage
-    life steal
-    magic pen
+    
     omnivamp
     physical vamp
     heal and shield power?
