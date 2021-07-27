@@ -142,20 +142,37 @@ export default class Build {
         this.setStatsToBase();     
     }
 
-    setLevel(level) {
-        this.level = level;
-    }
-
     setStatsToBase() {
         for(var stat in this.stats) {
             // Get the base stats from the champ and set them
             if(this.champion.stats.hasOwnProperty(stat)) {
-                this.stats[stat].value = this.champion.stats[stat];
+                let trueGrowth = 0;
+                if(this.champion.stats.hasOwnProperty(`${stat}perlevel`)) { 
+                    let growthStat =  this.champion.stats[`${stat}perlevel`];
+                    if(stat == 'attackspeed') {
+                        growthStat *= .01;
+                    }
+                    trueGrowth = calculateTrueGrowth(growthStat, this.level);
+                } 
+                if(stat == 'attackspeed') { // probably need to refactor this to handle other stats that are calculated as bonuses
+                    this.stats[stat].value = this.champion.stats[stat] * (1 + trueGrowth);
+                } else this.stats[stat].value = this.champion.stats[stat] + trueGrowth;
+                
             } else { //Set the stats not included with champs
                 this.stats[stat].value = 0;
             }
             this.stats[stat].multiplier = 1;
         }
+
+        function calculateTrueGrowth(growthStat, level) {
+            // https://leagueoflegends.fandom.com/wiki/Champion_statistic
+            return growthStat * (level - 1) * (.7025 + .0175 * (level - 1));    
+        }
+    }
+
+    setLevel(level) {
+        this.level = level;
+        this.calcStats();
     }
 
     setItem(item, pos) {

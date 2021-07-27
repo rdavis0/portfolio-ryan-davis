@@ -22,11 +22,12 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    // selectChampion('Jinx');
-    // showItemList('buildItem0');
-    // selectItem('3085', 'buildItem0');
-    // selectItem('6676', 'buildItem1');
-    // selectItem('3033', 'buildItem2');
+    selectChampion('Jinx');
+    showItemList('buildItem0');
+    selectItem('3006', 'buildItem0'); // Berserker's greaves
+    selectItem('3094', 'buildItem1'); // Rapid Firecannon
+    selectItem('3085', 'buildItem2'); // Runaan's Hurricane
+    setLevel(10);
 
 
     document.querySelectorAll('.build-item').forEach((item) => {
@@ -92,6 +93,8 @@ function renderBuildView() {
     document.querySelectorAll('.edit-champ-button').forEach((el) => {
         el.addEventListener('click', showChampSelect);
     });
+    let levelSelector = getElement('champ-level');
+    levelSelector.addEventListener('change', () => setLevel(levelSelector.value));
     hide(champSelectView);
     show(buildView);
 }
@@ -104,6 +107,7 @@ function updateBuildStatsDisplay() {
         }
         getElement(stat).innerText = `${build.stats[stat].formatted}: ${roundedValue}`;
     }
+    getElement('champ-level').value = build.level;
 }
 
 function showItemList(buildItemId) {
@@ -155,6 +159,11 @@ function addItemToBelt(itemId, buildItemId) {
     img.setAttribute('alt', ld.getItem(itemId).name);
     buildItemDiv.appendChild(img);
     buildItemDiv.removeAttribute('data-active-belt-slot');
+}
+
+function setLevel(level) {
+    build.setLevel(level);
+    updateBuildStatsDisplay();
 }
 
 function hide(element) {
