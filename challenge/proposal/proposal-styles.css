@@ -143,12 +143,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .color-scheme .font-dark {
-  background-color: #000203;
+  background-color: white;
+  color: #000203;
 }
 
 .color-scheme .font-light {
-  background-color: #D6F1FF;
-  color: #000203;
+  background-color: black;
 }
 
 @media only screen and (max-width: 900px) {

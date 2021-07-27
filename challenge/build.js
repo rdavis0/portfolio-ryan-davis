@@ -180,7 +180,7 @@ export default class Build {
             for(var modifier in item.stats) {
                 let affectedStat = getAffectedStat(modifier);
                 let buffValue = item.stats[modifier];  
-                if (getModifierType(modifier) === 'flat') {
+                if (getModifierType(modifier) == 'flat') {
                     this.stats[affectedStat].value += buffValue;
                 }           
                 else if (getModifierType(modifier) === 'percent') {
