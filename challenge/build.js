@@ -154,7 +154,7 @@ export default class Build {
                     }
                     trueGrowth = calculateTrueGrowth(growthStat, this.level);
                 } 
-                if(stat == 'attackspeed') { // probably need to refactor this to handle other stats that are calculated as bonuses
+                if(stat == 'attackspeed') { // TODO: probably need to refactor this to handle other stats that are calculated as bonuses
                     this.stats[stat].value = this.champion.stats[stat] * (1 + trueGrowth);
                 } else this.stats[stat].value = this.champion.stats[stat] + trueGrowth;
                 
