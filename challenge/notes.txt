@@ -14,11 +14,7 @@ Delete item
 Account for energy champs and other forms of ability juice
 Override back button?
 Missing 
-    armor pen
-    lethality
-    crit damage
-    life steal
-    magic pen
+    
     omnivamp
     physical vamp
     heal and shield power?

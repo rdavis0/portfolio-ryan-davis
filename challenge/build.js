@@ -5,51 +5,133 @@ export default class Build {
         this.stats = {
             hp: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'HP'
             },
             hpregen: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'HP Regen'
             },
             mp: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Mana'
             },
             mpregen: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Mana Regen'
             },
             armor: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Armor'
             },
             magicresist: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Magic Resist'
             },
             attackdamage: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Attack Damage'
             },
             attackspeed: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Attack Speed'
             },
             attackrange: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Attack Range'
             },
             crit: {
                 value: 0,
-                formatted: 'Critical Strike'
+                multiplier: 1,
+                formatted: 'Crit Chance'
+            },
+            critdamage: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Crit Damage'
             },
             ap: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Ability Power'
             },
             movespeed: {
                 value: 0,
+                multiplier: 1,
                 formatted: 'Movement Speed'
+            },
+            armorpen: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Armor Penetration'
+            },
+            lethality: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Lethality'
+            },
+            lifesteal: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Life Steal'
+            },
+            magicpen: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Magic Penetration'
+            },
+            omnivamp: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Omnivamp'
+            },
+            physvamp: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Physical Vamp'
+            },
+            healshieldpower: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Heal & Shield Power'
+            },
+            tenacity: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Tenacity'
+            },
+            slowresist: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Slow Resist'
+            },
+            abilityhaste: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Ability Haste'
+            },
+            energy: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Energy'
+            },
+            energyregen: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Energy Regen'
+            },
+            goldgen: {
+                value: 0,
+                multiplier: 1,
+                formatted: 'Gold Gen'
             }
         };
     }  
@@ -72,6 +154,19 @@ export default class Build {
         this.stats.attackdamage.value = this.champion.stats.attackdamage;
         this.stats.attackspeed.value = this.champion.stats.attackspeed;
         this.stats.ap.value = 0;
+        this.stats.armorpen.value = 0;
+        this.stats.lethality.value = 0;
+        this.stats.lifesteal.value = 0;
+        this.stats.magicpen.value = 0; 
+        this.stats.omnivamp.value = 0;
+        this.stats.physvamp.value = 0;
+        this.stats.healshieldpower.value = 0;
+        this.stats.tenacity.value = 0;
+        this.stats.slowresist.value = 0; 
+        this.stats.abilityhaste.value = 0;
+        this.stats.energy.value = 0;
+        this.stats.energyregen.value = 0;
+        this.stats.goldgen.value = 0;
     }
 
     setItem(item, pos) {
@@ -89,10 +184,14 @@ export default class Build {
                     this.stats[affectedStat].value += buffValue;
                 }           
                 else if (getModifierType(modifier) === 'percent') {
-                    this.stats[affectedStat].value *= (1 + buffValue);
+                    this.stats[affectedStat].multiplier += (buffValue);
                 }   
             }
+            
         });
+        for(var stat in this.stats) {
+            this.stats[stat].value *= this.stats[stat].multiplier; 
+        }
         
         function getModifierType(modifier) {
             if(modifier.toLowerCase().includes('flat')) 
@@ -122,21 +221,21 @@ export default class Build {
                 case "PercentMovementSpeedMod": return 'movespeed'; 
                 case "FlatAttackSpeedMod": return 'attackspeed'; 
                 case "PercentAttackSpeedMod": return 'attackspeed'; 
-                // case "PercentDodgeMod": return ''; 
+                // case "PercentDodgeMod": return '';                   DEPRECATED?
                 case "FlatCritChanceMod": return 'crit'; 
                 case "PercentCritChanceMod": return 'crit'; 
-                // case "FlatCritDamageMod": return ''; 
-                // case "PercentCritDamageMod": return ''; 
-                // case "FlatBlockMod": return ''; 
-                // case "PercentBlockMod": return ''; 
+                case "FlatCritDamageMod": return 'critdamage'; 
+                case "PercentCritDamageMod": return 'critdamage'; 
+                // case "FlatBlockMod": return '';                      DEPRECATED?
+                // case "PercentBlockMod": return '';                   DEPRECATED?
                 case "FlatSpellBlockMod": return 'magicresist'; 
                 case "PercentSpellBlockMod": return 'magicresist'; 
-                // case "FlatEXPBonus": return ''; 
-                // case "PercentEXPBonus": return ''; 
-                // case "FlatEnergyRegenMod": return ''; 
-                // case "FlatEnergyPoolMod": return ''; 
-                // case "PercentLifeStealMod": return ''; 
-                // case "PercentSpellVampMod": return ''; 
+                // case "FlatEXPBonus": return '';                      DEPRECATED?
+                // case "PercentEXPBonus": return '';                   DEPRECATED?
+                // case "FlatEnergyRegenMod": return '';                DEPRECATED?
+                // case "FlatEnergyPoolMod": return '';                 DEPRECATED?
+                case "PercentLifeStealMod": return 'lifesteal'; 
+                // case "PercentSpellVampMod": return '';               DEPRECATED?
             }
         }
     }
