@@ -25,8 +25,8 @@ init().then(() => {
     selectChampion('Jinx');
     showItemList('buildItem0');
     selectItem('3006', 'buildItem0'); // Berserker's greaves
-    selectItem('3094', 'buildItem1'); // Rapid Firecannon
-    selectItem('3085', 'buildItem2'); // Runaan's Hurricane
+    // selectItem('3094', 'buildItem1'); // Rapid Firecannon
+    // selectItem('3085', 'buildItem2'); // Runaan's Hurricane
     setLevel(10);
 
 

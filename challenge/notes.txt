@@ -1,5 +1,9 @@
-
-Tues: Write report, Edit champ level, enforce item limits?
+Off:
+    Mana
+    HP Regen 
+    Mana Regen?
+    Attack Speed
+    Armor Pen  
 
 
 Todo: 
