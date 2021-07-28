@@ -22,12 +22,12 @@ init().then(() => {
     renderChampList();
 
     // Rapid testing code
-    selectChampion('Jinx');
-    showItemList('buildItem0');
-    selectItem('3006', 'buildItem0'); // Berserker's greaves
+    // selectChampion('Jinx');
+    // showItemList('buildItem0');
+    // selectItem('3006', 'buildItem0'); // Berserker's greaves
     // selectItem('3094', 'buildItem1'); // Rapid Firecannon
     // selectItem('3085', 'buildItem2'); // Runaan's Hurricane
-    setLevel(10);
+    // setLevel(10);
 
 
     document.querySelectorAll('.build-item').forEach((item) => {
