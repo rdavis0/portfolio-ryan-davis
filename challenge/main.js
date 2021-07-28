@@ -21,13 +21,16 @@ init().then(() => {
     items = ld.getItems();
     renderChampList();
 
-    // Rapid testing code
-    // selectChampion('Jinx');
-    // showItemList('buildItem0');
-    // selectItem('3006', 'buildItem0'); // Berserker's greaves
-    // selectItem('3094', 'buildItem1'); // Rapid Firecannon
-    // selectItem('3085', 'buildItem2'); // Runaan's Hurricane
-    // setLevel(10);
+    if(location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        console.log('localhost');
+        // Rapid testing code
+        // selectChampion('Jinx');
+        // showItemList('buildItem0');
+        // selectItem('3006', 'buildItem0'); // Berserker's greaves
+        // selectItem('3094', 'buildItem1'); // Rapid Firecannon
+        // selectItem('3085', 'buildItem2'); // Runaan's Hurricane
+        // setLevel(10);
+    }
 
 
     document.querySelectorAll('.build-item').forEach((item) => {
